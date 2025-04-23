@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <!-- user_scalable = no - es para que el usuario no pueda realizar zoom con los 2 dedos. -->
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <title>Tristan: Behind The Books</title>
+  <link rel="shortcut icon" href="img/icono-web/libro-icono.svg" type="image/x-icon" />
+  <link rel="stylesheet" href="css/reset_estilos.css" />
+  <link rel="stylesheet" href="css/estilos.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+
+<body>
+  <!-- Inicio Cabecera -->
+  <header class="header">
+    <div class="header__wrap">
+      <div class="header__logo">
+        <img src="./img/logo.png" alt="Logo Librería" class="logo__img" />
+        <!-- Agregamos el nombre aquí -->
+        
+      </div>
+      <nav class="header__menu">
+        <ul class="menu__list">
+          <li class="list__item"><a href="#">INICIO</a></li>
+          <li class="list__item"><a href="#">CATEGORIAS</a></li>
+          <li class="list__item"><a href="#">AUTORES</a></li>
+          <li class="list__item"><a href="#">NOTICIAS</a></li>
+          <li class="list__item"><a href="#">CONTACTO</a></li>
+        </ul>
+      </nav>
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar libro..." class="search-bar__input" />
+    
+      </div>
+      
+      <div class="buttons">
+        <button class="btn">Inicar Sesión</button>
+        <button class="btn btn--secondary">Registrarse</button>
+      </div>
+    </div>
+  </header>
+  <!-- fin de la Cabecera -->
+
+  <main class="content__wrap">
+    <section class="content__info">
+        <!-- Inicio Tarjetas -->
+        <div class="content__cards">
+          <div class="cards__card">
+            <img src="./img/ficcion.jpg" alt="Ficción" class="card__image" />
+            <h2 class="card__title">Ficción</h2>
+          </div>
+
+          <div class="cards__card">
+            <img src="./img/ciencia.png" alt="Ciencia" class="card__image" />
+            <h2 class="card__title">Ciencia</h2>
+          </div>
+
+          <div class="cards__card">
+            <img src="./img/comic.jpg" alt="Comic/Manga" class="card__image" />
+            <h2 class="card__title">Comic/Manga</h2>
+          </div>
+
+          <div class="cards__card">
+            <img src="./img/infatil.jpg" alt="Infantil" class="card__image" />
+            <h2 class="card__title">Infantil</h2>
+          </div>
+
+          <div class="cards__card">
+            <img src="./img/fantasia.jpg" alt="Fantasía" class="card__image" />
+            <h2 class="card__title">Fantasía</h2>
+          </div>
+
+          <div class="cards__card">
+            <img src="./img/historia.jpg" alt="Historia" class="card__image" />
+            <h2 class="card__title">Historia</h2>
+          </div>
+
+          <div class="cards__card">
+            <img src="./img/literatura.jpg" alt="Literatura" class="card__image" />
+            <h2 class="card__title">Literatura</h2>
+          </div>
+
+          <div class="cards__card">
+            <img src="./img/poesia.jpeg" alt="Poesia" class="card__image" />
+            <h2 class="card__title">Poesia</h2>
+          </div>
+
+        </div>
+        <!-- fin de Tarjetas -->
+      </section>
+
+    <!-- Contenedor principal -->
+    <div class="content">
+      <!-- Inicio de los Artículos -->
+      <section class="content__articles">
+        <h2 class="articles__title">Últimos artículos Literarios</h2>
+        <article class="articles__article">
+          <div class="article__datos">
+            <span>Fecha: 01 de enero</span>
+            <span>Categoría: Ficción</span>
+          </div>
+          <h4 class="article__subtitle">
+            <a href="#">Nuevas tendencias en la literatura de ficción</a>
+          </h4>
+          <p>
+            Explora las narrativas innovadoras que están surgiendo en el mundo
+            de la ficción. Autores emergentes están llevando la creatividad al
+            límite.
+          </p>
+          <p>
+            ¿Qué nuevos temas y estilos están dominando las páginas de nuestras
+            novelas favoritas? Aquí te lo contamos.
+          </p>
+        </article>
+        <article class="articles__article">
+          <div class="article__datos">
+            <span>Fecha: 01 de febrero</span>
+            <span>Categoría: Fantasía</span>
+          </div>
+          <h4 class="article__subtitle">
+            <a href="#">La evolución de la literatura fantástica</a>
+          </h4>
+          <p>
+            Desde Tolkien hasta las novelas contemporáneas, la fantasía ha
+            tenido un impacto duradero en la literatura. ¿Qué hace que estas
+            historias sean tan cautivadoras?
+          </p>
+          <p>
+            En este artículo, analizamos los elementos que definen el género y
+            lo que los lectores buscan en las obras fantásticas.
+          </p>
+        </article>
+        <article class="articles__article">
+          <div class="article__datos">
+            <span>Fecha: 01 de marzo</span>
+            <span>Categoría: Infantil</span>
+          </div>
+          <h4 class="article__subtitle">
+            <a href="#">Los mejores libros infantiles del año</a>
+          </h4>
+          <p>
+            Los libros para niños no solo educan, sino que también fomentan la
+            imaginación. Descubre nuestras selecciones para los más pequeños.
+          </p>
+          <p>
+            Desde cuentos ilustrados hasta novelas para jóvenes lectores, hay
+            algo para cada niño.
+          </p>
+        </article>
+        <article class="articles__article">
+          <div class="article__datos">
+            <span>Fecha: 01 de abril</span>
+            <span>Categoría: Poesía</span>
+          </div>
+          <h4 class="article__subtitle">
+            <a href="#">La belleza de la poesía contemporánea</a>
+          </h4>
+          <p>
+            La poesía ha renacido en la era digital. Autores están utilizando
+            plataformas sociales para compartir su arte. ¿Cómo ha cambiado esto
+            la forma en que leemos poesía?
+          </p>
+          <p>
+            En este artículo, exploramos las voces más frescas de la poesía y su
+            impacto en la cultura literaria.
+          </p>
+        </article>
+        <article class="articles__article">
+          <div class="article__datos">
+            <span>Fecha: 01 de agosto</span>
+            <span>Categoría: Literatura Clásica</span>
+          </div>
+          <h4 class="article__subtitle">
+            <a href="#">¿Clásicos de la literatura en peligro?</a>
+          </h4>
+          <p>
+            Desde "Cien años de soledad" hasta "Orgullo y prejuicio", exploramos
+            por qué estas obras siguen siendo relevantes en la actualidad.
+          </p>
+          <p>
+            Un vistazo a las lecciones y temas universales que siguen resonando
+            en el lector moderno.
+          </p>
+        </article>
+        <article class="articles__blog">
+          <a href="#">¿Todo Listo?</a>
+        </article>
+      </section>
+      <!-- fin de los Artículos -->
+
+      <!-- Inicio de Barra Lateral -->
+      <aside class="content__lateral">
+        <h3 class="lateral__title">BUSCAR LIBRO</h3>
+        <div class="lateral__search">
+          <form>
+            <input type="text" />
+            <input type="button" value="L " class="search__icon" />
+          </form>
+        </div>
+        <h3 class="lateral__title">LOGIN</h3>
+        <div class="lateral__login aside-box">
+          <form class="login__form">
+            <div class="form__group">
+              <label class="lateral-box__user aside-box__icon" for="email">U</label>
+              <input type="email" id="email" placeholder="Correo electrónico" class="form__input" />
+            </div>
+            <div class="form__group">
+              <label class="lateral-box__password aside-box__icon" for="password">w</label>
+              <input type="password" id="password" placeholder="Contraseña" class="form__input" />
+            </div>
+            <div class="form__actions">
+              <input type="submit" value="Entrar" class="btn btn--submit" />
+              <input type="reset" value="Limpiar" class="btn btn--reset" />
+            </div>
+            <div class="form__links">
+              <a href="#" class="link">Regístrate aquí</a>
+              <a href="#" class="link">¿Has olvidado tu contraseña?</a>
+            </div>
+          </form>
+        </div>
+        <h3 class="lateral__title">REDES SOCIALES</h3>
+        <div class="lateral__social aside-box">
+          <div class="social__item social__twitter">
+            <a href="#" class="social__icon">t</a>
+            <p class="social__overlay">Twitter - Tristan</p>
+          </div>
+          <div class="social__item social__facebook">
+            <a href="#" class="social__icon">f</a>
+            <p class="social__overlay">Facebook - Tristan</p>
+          </div>
+          <div class="social__item social__youtube">
+            <a href="#" class="social__icon">y</a>
+            <p class="social__overlay">YouTube - Tristan</p>
+          </div>
+        </div>
+      </aside>
+      <!-- fin de Aside -->
+    </div>
+
+
+    <!--Seccion de los productos-->
+    <section id="productos">
+      <h2 class="productos__h2">Productos Destacados</h2>
+      <div class="detalles_productos">
+        <!-- Tarjeta del primer producto -->
+        <div class="carta_producto">
+          <img src="./img/librosIMG/libro1.webp" alt="Libro 1" />
+          <p>
+            <b>Robinson Crusoe <br />
+              = Categoría = <br />Aventura</b>
+          </p>
+        </div>
+        <!-- Tarjeta del segundo producto -->
+        <div class="carta_producto">
+          <img src="./img/librosIMG/libro2.jpg" alt="Libro 2" />
+          <p>
+            <b>1984 <br />
+              = Categoría = <br />
+              Ciencia Ficción</b>
+          </p>
+        </div>
+        <!-- Tarjeta del tercer producto -->
+        <div class="carta_producto">
+          <img src="./img/librosIMG/libro3.jpg" alt="Libro 3" />
+          <p>
+            <b>Beowulf <br />
+              = Categoría = <br />Fantasía</b>
+          </p>
+        </div>
+        <!-- Tarjeta del cuarto producto -->
+        <div class="carta_producto">
+          <img src="./img/librosIMG/libro4.jpg" alt="Libro 4" />
+          <p>
+            <b>Sapiens: De animales a dioses <br />
+              = Categoría = <br />
+              Historia</b>
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- fin seccion de los Productos -->
+
+    <!-- Seccion de componentes del equipo -->
+    <section id="equipo">
+      <h2>Equipo de Trabajo</h2>
+      <div class="seccion_equipo">
+        <div class="miembro_equipo">
+          <img src="./img/Miembros de equipo/miembro1.png" alt="Miembro 1" />
+          <p><b>Daiana - Marketing</b></p>
+          <p class="miembro__descripcion">
+            Apasionada y creativa, amante de la historia, no paro ¡quieta!.
+          </p>
+        </div>
+        <div class="miembro_equipo">
+          <img src="./img/Miembros de equipo/miembro2.jpg" alt="Miembro 2" />
+          <p><b>Ismael - Director</b></p>
+          <p class="miembro__descripcion">
+            Reflexivamente profundo, amante de la vida, 'hater' de lo
+            artificial.
+          </p>
+        </div>
+        <div class="miembro_equipo">
+          <img src="./img/Miembros de equipo/miembro3.png" alt="Miembro 3" />
+          <p><b>Ana Elena - Finanzas</b></p>
+          <p class="miembro__descripcion">
+            Enamorada de Brandon Sanderson, 'viaje antes que destino'.
+          </p>
+        </div>
+        <div class="miembro_equipo">
+          <img src="./img/Miembros de equipo/miembro4.png" alt="Miembro 4" />
+          <p><b>Aaron - Análisis y bases de datos</b></p>
+          <p class="miembro__descripcion">Conocedor de todo y nada.</p>
+        </div>
+      </div>
+    </section>
+    <!-- Fin de la seccion de equipo -->
+  </main>
+  <!-- Inicio de Pié de Página -->
+  <footer class="content__footer">
+    <div class="footer__wrap">
+      <div class="footer__menuFooter">
+        <h5 class="footer__title">MENÚ</h5>
+        <ul class="footer__list">
+          <li><a href="#">INICIO</a></li>
+          <li><a href="#">CATEGORÍAS</a></li>
+          <li><a href="#">AUTORES</a></li>
+          <li><a href="#">NOTICIAS</a></li>
+          <li><a href="#">CONTACTO</a></li>
+        </ul>
+      </div>
+      <div class="footer__location">
+        <h5 class="footer__title">¿DÓNDE ESTAMOS?</h5>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3199.1822154924724!2d-4.418070824516026!3d36.7212821767656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72f7946b26f143%3A0x91b362cbe3422ef1!2sCalle%20Sherlock%20Holmes%2C%20M%C3%A1laga%2C%20Espa%C3%B1a!5e0!3m2!1ses!2ses!4v1698800000000!5m2!1ses!2ses"
+          width="600" height="450" style="border: 0" allowfullscreen="" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="footer__info">
+        <h5 class="footer__title">Desarrollado con</h5>
+        <p>
+          <img src="img/html5-badge-h-css3-graphics-multimedia-performance-semantics.png" alt="Creado con HTML y CSS" />
+        </p>
+        <h5 class="footer__title">Optimizado para</h5>
+        <p class="footer__browsers">
+          <a href="#">
+            <img src="img/firefox-icon.png" alt="Firefox" />
+          </a>
+          <a href="#">
+            <img src="img/chrome.png" alt="Chrome" />
+          </a>
+          <a href="#">
+            <img src="img/safari.png" alt="Safari" />
+          </a>
+          <a href="#">
+            <img src="img/android.png" alt="Android" />
+          </a>
+          <a href="#">
+            <img src="img/Opera_256x256.png" alt="Opera" />
+          </a>
+        </p>
+        <h5 class="footer__title">AUTOR</h5>
+        <p>&copy; Tristan Biblioteca - Desarrollado por Ismael Pérez Soler</p>
+      </div>
+    </div>
+  </footer>
+  <!-- fin de Pié de Página -->
+</body>
+
+</html>
