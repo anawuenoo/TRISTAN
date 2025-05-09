@@ -120,7 +120,7 @@
     }
 
     function verificarRecaptcha($token) {
-        $secret = "6LeUfTMrAAAAAHWq2bNmhLt4KXfr1fafnlk0g7IJ";
+        $secret = "Codigo ded seguridad";
         if (!$token) return ["success" => false, "error" => "Falta el token de reCAPTCHA"];
     
         $respuesta = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$token");
