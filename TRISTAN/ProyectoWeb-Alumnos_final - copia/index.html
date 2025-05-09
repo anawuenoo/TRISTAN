@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- user_scalable = no - es para que el usuario no pueda realizar zoom con los 2 dedos. -->
+    <meta name="viewport" content="width=device-width, user-scalable=no"> 
+    <title>TRISTRAN</title>
+    <link rel="shortcut icon" href="img/libro.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/reset_estilos.css">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Inicio Cabecera -->
+    <header class="header">
+        <div class="header__wrap">
+            <div class="header__logo"> 
+                <img class="logo__libros" src="./img/libro.png">
+                <h3>TRISTAN</h3>
+            </div>
+            <nav class="header__menu">
+                <ul class="menu__list">
+                    <li class="list__item"><a href="#">INICIO</a></li>
+                    <li class="list__item"><a href="#">BLOG</a></li>
+                    <li class="list__item">
+                        <a class="item__texto" href="#">CATEGORIAS <p class="texto__desplegable">;</p></a>
+                        <ul class="list__submenu">
+                            <li class="submenu__item">
+                                <a href="#" class="submenu__title">Cientificos</a>
+                            </li>
+                            <li class="submenu__item">
+                                <a href="#" class="submenu__title">Biografias</a>
+                            </li>
+                            <li class="submenu__item">
+                                <a href="#" class="submenu__title">Ficcion</a>
+                            </li>
+                            <li class="submenu__item">
+                                <a href="#" class="submenu__title">Comedia</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list__item"><a href="#">CONTACTO</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+    </header>
+    <!-- fin de la Cabecera -->
+    
+    <main class="content__wrap">
+        <section class="content__info">
+            <!-- Inicio Banner -->
+            <div class="content__buscador">
+                <input type="text" placeholder="Buscar..." class="buscador__text">
+                <button class="buscador__button">Buscar</button>
+            </div>
+            <!-- fin de Banner -->
+            <!-- Inicio Tarjetas -->
+            <div class="content__cards">
+                <div class="cards__card">
+                    <img src="img/ciencias.png" alt="Ciencia" class="card__icon">
+                    <div class="card__animar">
+                        <h2 class="card__category">Cientificos</h2>
+                        <p class="card__description">
+                            Libros que explican conceptos científicos de manera accesible para el público general. Ideales para quienes quieren aprender sobre física, biología, astronomía, entre otros, sin necesidad de formación especializada.
+                        </p>
+                    </div>
+                </div>
+                <div class="cards__card">
+                    <img src="img/biografia.png" alt="Ciencia" class="card__icon">
+                    <div class="card__animar">
+                        <h2 class="card__category">Biografias</h2>
+                        <p class="card__description">
+                            Libros que narran la vida de una persona real, ofreciendo una visión profunda de sus logros, desafíos y experiencias. Pueden centrarse en figuras históricas, líderes, celebridades, o personas con una vida extraordinaria.
+                        </p>
+                    </div>
+                </div>
+                <div class="cards__card">
+                    <img src="img/ciencia-ficcion.png" alt="Ciencia" class="card__icon">
+                    <div class="card__animar">
+                        <h2 class="card__category">Ficcion</h2>
+                        <p class="card__description">
+                            Libros que presentan historias imaginarias creadas a partir de la creatividad del autor. Pueden incluir eventos, personajes o mundos inventados, como en las novelas de fantasía o ciencia ficción.
+                        </p>
+                    </div>
+                </div>
+                <div class="cards__card">
+                    <img src="img/comedia.png" alt="Ciencia" class="card__icon">
+                    <div class="card__animar">
+                        <h2 class="card__category">Comedia</h2>
+                        <p class="card__description">
+                            Libros que tienen como objetivo principal hacer reír al lector. Pueden ser novelas, cuentos o ensayos humorísticos que presentan situaciones graciosas, personajes excéntricos y diálogos ingeniosos.
+                        </p>
+                    </div>
+                </div>
+                <div class="cards__card">
+                    <img src="img/misterio.png" alt="Ciencia" class="card__icon">
+                    <div class="card__animar">
+                        <h2 class="card__category">Misterio</h2>
+                        <p class="card__description">
+                            Se centran en resolver crímenes, descubrir secretos, o enfrentar situaciones tensas y peligrosas. Son novelas con giros inesperados, como las de Agatha Christie.Este tipo de libros mantiene al lector alerta.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- fin de Tarjetas -->
+        </section>
+        <!-- Inicio de Barra Lateral -->
+        <div class="clearfix"></div>
+        <aside class="content__lateral">
+            <h3 class="lateral__title">BUSCAR</h3>
+            <div class="lateral__search">
+                <form>
+                    <input type="text">
+                    <input type="button" value="L" class="search__icon">
+                </form>
+            </div>
+            <h3 class="lateral__title">LOGIN</h3>
+            <div class="lateral__login aside-box">
+                <form>
+                    <label class="lateral-box__user aside-box__icon">U</label>
+                    <input type="email">
+                    <label class="lateral-box__password aside-box__icon">w</label>
+                    <input type="password">
+                    <input type="submit" value="Entrar">
+                    <input type="reset" value="Limpiar">
+                    <a href="#">Regístrate aquí</a>
+                    <a href="#">Has olvidado tu contraseña?</a>
+                </form>
+            </div>
+            <h3 class="lateral__title">REDES SOCIALES</h3>
+            <div class="lateral__social aside-box">
+                <div class="social__twitter">
+                    <a href="#" class="social__icon">t</a>
+                    <p class="social__overlay">
+                        Twitter
+                    </p>
+                </div>
+                <div class="social__facebook">
+                    <a href="#" class="social__icon">f</a>
+                    <p class="social__overlay">
+                        Facebook
+                    </p>
+                </div>
+                <div class="social__youtube">
+                    <a href="#" class="social__icon">y</a>
+                    <p class="social__overlay">
+                        Youtube
+                    </p>
+                </div>
+            </div>
+            <h3 class="lateral__title">PATROCINADORES</h3>
+            <div class="lateral__sponsors aside-box">
+                <img src="img/santillana.png" alt="Santillana">
+                <img src="img/hachette.png" alt="Hachette">
+                <img src="img/macmillan.png" alt="Macmillan">
+            </div>
+        </aside>
+        <!-- fin de Aside -->
+        <!-- Inicio de los Artículos -->
+        <section class="content__articles">
+            <h2 class="articles__title">Recomendaciones</h2>
+            <div class="clearfix"></div>
+            <div class="articles__libros">
+                <article class="libros__article">
+                    <div class="article__datos">
+                        <span>Fecha:03/03/2021</span>
+                        <span>Categoría: Ficcion</span>
+                    </div>
+                    <img src="img/la_isla_de_la_mujer_dormida.png" alt="libro" class="article__imagen">
+                    <h4 class="article__subtitle">
+                        <a href="#">La isla de la mujer dormida</a>
+                    </h4>
+                    <p>La Isla de la Mujer Dormida es una novela de intriga y misterio que nos lleva a una isla envuelta en leyendas y secretos oscuros. La historia sigue a un grupo de personajes que llegan a esta isla solitaria, atraídos por su enigmática
+                    historia, en la cual se dice que yace una mujer dormida que guarda un secreto milenario. A medida que exploran, comienzan a descubrir conexiones entre sus propias vidas y los mitos de la isla, enfrentándose a sus miedos y a un pasado 
+                    enterrado que amenaza con resurgir. La atmósfera cargada de suspenso y los giros inesperados mantienen al lector cautivado, explorando temas de misterio, leyenda, y el poder de la naturaleza y la memoria.</p>
+                </article>
+                <article class="libros__article">
+                    <div class="article__datos">
+                        <span>Fecha:01/01/1980</span>
+                        <span>Categoría: Biografia</span>
+                    </div>
+                    <img src="img/george_orwell.png" alt="libro" class="article__imagen">
+                    <h4 class="article__subtitle">
+                        <a href="#">George Orwell: vida, obra, tiempo</a>
+                    </h4>
+                    <p>Presentamos la primera biografía de George Orwell traducida del ruso, en la que se incorporan nuevos documentos de archivo y una perspectiva única sobre la vida y obra de Orwell. En esta obra, Yuri Felshtinsky ofrece un análisis detallado 
+                    de las novelas, ensayos, artículos y cartas del emblemático autor del siglo xx, y pone especial enfasis en su impacto en la literatura y la política mundial. Prestando especial atención a los matices ruso-sovieticos de su obra, esa biografía 
+                    ofrece una comprensión más profunda de su proceso creativo y sus relaciones personales y profesionales.</p>
+                </article>
+                <article class="libros__article">
+                    <div class="article__datos">
+                        <span>Fecha:10/05/2022</span>
+                        <span>Categoría: Cientifico</span>
+                    </div>
+                    <img src="img/el_secreto_de_la_vida.png" alt="libro" class="article__imagen">
+                    <h4 class="article__subtitle">
+                        <a href="#">Ele secreto de la vida</a>
+                    </h4>
+                    <p>El Secreto de la Vida de Howard Markel es un libro que explora el impacto de la medicina y la ciencia en la vida humana a lo largo de la historia. En esta obra, Markel, un historiador médico, aborda cómo los avances médicos y las 
+                    innovaciones científicas han transformado nuestra comprensión de la salud, la enfermedad y la mortalidad. A lo largo del libro, se examinan figuras clave de la historia de la medicina y sus descubrimientos, que a menudo fueron revolucionarios 
+                    para la época. El autor también reflexiona sobre las lecciones que la ciencia ha aprendido sobre el cuerpo humano, los límites de la medicina, y cómo nuestras concepciones sobre la vida y la muerte han cambiado a lo largo de los siglos.</p>
+                </article>
+                <article class="libros__article">
+                    <div class="article__datos">
+                        <span>Fecha:01/01/1983</span>
+                        <span>Categoría: Ficcion</span>
+                    </div>
+                    <img src="img/BLACKWATER_I_LA_RIADA.png" alt="libro" class="article__imagen">
+                    <h4 class="article__subtitle">
+                        <a href="#">Blackwater I. la riada</a>
+                    </h4>
+                    <p>Blackwater I. La Riada es la primera entrega de una serie de novelas escrita por Michael McDowell. La historia arranca en el pequeño pueblo de Perdido, Alabama, cuando una terrible inundación saca a la superficie mucho más que agua 
+                    desbordada. En medio de la catástrofe, aparece Elinor Dammert, una misteriosa mujer que se convierte en el centro de una compleja saga familiar. Elinor se infiltra en la poderosa familia Caskey y desencadena tensiones que revelan 
+                    oscuros secretos. Con una mezcla de terror y drama sureño, esta novela explora el misterio y los conflictos familiares en un ambiente lleno de suspense, mientras sus personajes se ven afectados por la presencia inquietante de Elinor 
+                    y la influencia de fuerzas sobrenaturales.</p>
+                </article>
+                <article class="libros__article">
+                    <div class="article__datos">
+                        <span>Fecha:16/10/2018</span>
+                        <span>Categoría: Ciencia</span>
+                    </div>
+                    <img src="img/pilares_de_la_ciencia.png" alt="libro" class="article__imagen">
+                    <h4 class="article__subtitle">
+                        <a href="#">Pilares de la ciencia</a>
+                    </h4>
+                    <p>Entre los científicos más prominentes de la historia, Galileo, Newton y Einstein ocupan sin duda un lugar singularmente destacado. A los tres se les considera genios sobresalientes y los tres fueron capaces de hacer avanzar la ciencia a pasos 
+                    agigantados. En este libro se explican sus grandes logros de manera que el lector, sea cual sea su formación, podrá apreciar todo lo que la ciencia actual, mucho más allá de la física y las matemáticas, le debe a cada uno de ellos. Con sus 
+                    virtudes y sus defectos, sus limitaciones y sus errores, la magna contribución al conocimiento científico de Galileo, Newton y Einstein despierta admiración e interés, y las vicisitudes de sus vidas, en el contexto de sus circunstancias 
+                    históricas, nos ayudan a entender la humanidad de cada uno de ellos. Explicar todo ello con acierto, amenidad y rigor es, justamente, el propósito de este libro.</p>
+                </article>
+                <article class="libros__article">
+                    <div class="article__datos">
+                        <span>Fecha:23/05/2007</span>
+                        <span>Categoría: Misterio</span>
+                    </div>
+                    <img src="img/la_asistente.png" alt="libro" class="article__imagen">
+                    <h4 class="article__subtitle">
+                        <a href="#">La Asistente</a>
+                    </h4>
+                    <p>Millie, una ex convicta, se convierte en asistente de una familia adinerada en Long Island, buscando un nuevo comienzo. Sin embargo, pronto descubre que su vida perfecta oculta oscuros secretos. A medida que se adentra en su mundo, se enfrenta a 
+                    peligros que amenazan su seguridad y futuro. La novela explora temas de desesperación y las apariencias engañosas, manteniendo a los lectores en vilo con giros inesperados. Es el primer libro de una trilogía exitosa.</p>
+                </article>
+                <article class="libros__article">
+                    <div class="article__datos">
+                        <span>Fecha:21/11/2024</span>
+                        <span>Categoría: Misterio</span>
+                    </div>
+                    <img src="img/la_mujer_de_arriba.png" alt="libro" class="article__imagen">
+                    <h4 class="article__subtitle">
+                        <a href="#">La mujer de arriba</a>
+                    </h4>
+                    <p>La novela sigue la historia de una mujer que, tras sufrir un accidente automovilístico, se encuentra en una situación complicada. A medida que se recupera, comienza a descubrir secretos oscuros sobre su vida y su entorno. La protagonista lucha con 
+                    sus propios demonios mientras intenta reconstruir su vida, enfrentándose a traiciones y revelaciones impactantes. La narrativa está llena de giros inesperados y tensión, explorando temas de identidad, confianza y la lucha por la verdad. Es un 
+                    thriller psicológico que mantiene a los lectores intrigados hasta el final.</p>
+                </article>
+                <article class="libros__article">
+                    <div class="article__datos">
+                        <span>Fecha:29/9/2022</span>
+                        <span>Categoría: Comedia</span>
+                    </div>
+                    <img src="img/navidad_en_lobster_bay.png" alt="libro" class="article__imagen">
+                    <h4 class="article__subtitle">
+                        <a href="#">Navidad en Lobster Bay</a>
+                    </h4>
+                    <p>"Navidad en Lobster Bay" es una novela romántica que sigue a Emma y Aidan, quienes se unen para expandir la hospedería de Lobster Bay. A medida que trabajan juntos, enfrentan desafíos y malentendidos, pero también descubren una conexión especial. 
+                    La historia explora temas de amor, superación personal y el espíritu navideño, todo ambientado en un encantador pueblo costero. Es una lectura ideal para disfrutar durante la temporada festiva.</p>
+                </article>
+                <article class="libros__article">
+                    <div class="article__datos">
+                        <span>Fecha:26/09/2017</span>
+                        <span>Categoría: Biografia</span>
+                    </div>
+                    <img src="img/robert_barton.png" alt="libro" class="article__imagen">
+                    <h4 class="article__subtitle">
+                        <a href="#">Robert Barton</a>
+                    </h4>
+                    <p>El enigmático Robert Barton fue una figura central en la Revolución irlandesa. De ascendencia angloirlandesa, se unió al ejército británico en 1915. Fue enviado a Dublín para vigilar a los prisioneros republicanos después del Levantamiento 
+                        de Pascua de 1916. En dos años experimentó una conversión política y se unió al Sinn Féin. Fue elegido miembro del Dáil y encarcelado durante la Guerra de la Independencia, pero fue liberado para ayudar a negociar la tregua que puso fin al 
+                        conflicto. Fue miembro de las dos delegaciones irlandesas a Londres en 1921 y fue uno de los plenipotenciarios que firmaron a regañadientes el tratado angloirlandés en diciembre. Votó a favor del tratado a nivel de Gabinete y Dáil, pero 
+                        cuando lo hizo, cambió su lealtad al lado contrario al tratado en la Guerra Civil, durante la cual fue encarcelado nuevamente.</p>
+                </article>
+            </div>
+        </section>
+            <section class="content__miembros">
+                <div class="miembros__card">
+                    <img src="img/miembro1.png" alt="Daiana" class="card__fotos">
+                    <h2 class="card__name">Daiana - Marketing</h2>
+                </div>
+                <div class="miembros__card">
+                    <img src="img/miembro2.png" alt="Isma" class="card__fotos">
+                    <h2 class="card__name">Ismael - Director</h2>
+                </div>
+                <div class="miembros__card">
+                    <img src="img/miembro3.png" alt="Ana" class="card__fotos">
+                    <h2 class="card__name">Ana Elena - Finanzas</h2>
+                </div>
+                <div class="miembros__card">
+                    <img src="img/miembro4.png" alt="Aarón" class="card__fotos">
+                    <h2 class="card__name">Aaron - Análisis y bases de datos</h2>
+                </div>
+            </section>
+        <!-- fin de los Artículos -->
+    </main>
+    <div class="clearfix"></div>
+    <!-- Inicio de Pié de Página -->
+    <footer class="content__footer">
+        <div class="footer__wrap">
+            <div class="footer__menuFooter">
+                <h5 class="footer__title">MENÚ</h5>
+                <ul class="footer__list">
+                    <li class="listfooter_item"><a href="#">INICIO</a></li>
+                    <li class="listfooter_item"><a href="#">BLOG</a></li>
+                    <li class="listfooter_item"><a href="#">FORMACIÓN</a></li>
+                    <li class="listfooter_item"><a href="#">CONTACTO</a></li>
+                </ul>
+            </div>
+            <div class="footer__location">
+                <h5 class="footer__title">DÓNDE ESTAMOS?</h5>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3199.2996623515555!2d-4.462811723546774!3d36.69133637227841!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd72f9c45623d2c3%3A0x7a634bd28c0cf953!2sMEDAC%20Nova%20%F0%9F%A5%87%20Centro%20Tecnol%C3%B3gico%20de%20FP!5e0!3m2!1ses!2ses!4v1698701252334!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="footer__info">
+                <h5 class="footer__title">Desarrollado con</h5>
+                <p>
+                    <img src="img/html5-badge-h-css3-graphics-multimedia-performance-semantics.png" alt="Creado con HTML y CSS">
+                </p>
+                <h5 class="footer__title">Optimizado para</h5>
+                <p class="footer__browsers">
+                    <a href="#">
+                        <img src="img/firefox-icon.png" alt="Firefox">
+                    </a>
+                    <a href="#">
+                        <img src="img/chrome.png" alt="Chrome">
+                    </a>
+                    <a href="#">
+                        <img src="img/safari.png" alt="Safari">
+                    </a>
+                    <a href="#">
+                        <img src="img/android.png" alt="Android">
+                    </a>
+                    <a href="#">
+                        <img src="img/Opera_256x256.png" alt="Opera">
+                    </a>
+                </p>
+                <h5 class="footer__title">AUTOR</h5>
+                <p>&copy; Aarón Rando Rueda - 2ªA WEB</p>
+            </div>
+        </div>
+    </footer>
+    <!-- fin de Pié de Página -->
+</body>
+</html>

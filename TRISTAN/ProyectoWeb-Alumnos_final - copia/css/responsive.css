@@ -1,0 +1,123 @@
+/* Estilos para tabletas */
+@media (max-width: 1240px) {
+    :root{
+        --mx-width: 800px;
+    }
+    .footer__wrap > div{
+        width: 29%;
+    }
+    .footer__wrap > div:first-child{
+        margin-left: 0%;
+    }
+    .footer__wrap > div:last-child{
+        margin-right: 0%;
+    }
+    .footer__title{
+        font-size: 30px;
+    }
+    .content__lateral {
+        width: 250px;
+    }
+    .content__articles{
+        width: 63%;
+    }
+    .articles__libros{
+        grid-template-columns: 1fr 1fr;
+    }
+    .article__datos{
+        font-size: 11.5px;
+    }
+    .cards__card:hover:nth-child(1)::after{
+        left: calc(100%/2 - 330px);
+    }
+    .cards__card:hover:nth-child(2)::after{
+        left: calc(100%/2 - 82px);
+    }
+    .cards__card:hover:nth-child(3)::after{
+        left: calc(100%/2 + 175px);
+    }
+    .cards__card:hover:nth-child(4)::after{
+        top: 737px;
+        left: calc(100%/2 - 320px);
+    }
+    .cards__card:hover:nth-child(5)::after{
+        top: 737px;   
+        left: calc(100%/2 - 76px);
+    }
+    .miembros__card .card__fotos{
+        height: 120px;
+        width: 120px;
+    }
+    .card__name{
+        font-size: 15px;
+    }
+}
+
+/* Estilos para móviles */
+@media (max-width: 720px) {
+    :root{
+        --mx-width: 700px;
+    }
+    .header__logo{
+        width: 190px;
+    }
+    .header__logo h3{
+        font-size: 40px;
+        margin-right: 10px;
+    }
+    .content__cards{
+        margin-left: 15%;
+    }
+    .cards__card:hover:nth-child(1)::after{
+        left: calc(100%/2 - 174px);
+    }
+    .cards__card:hover:nth-child(2)::after{
+        left: calc(100%/2 + 73px);
+    }
+    .cards__card:hover:nth-child(3)::after{
+        top: 737px; 
+        left: calc(100%/2 - 158px);
+    }
+    .cards__card:hover:nth-child(4)::after{
+        top: 737px;
+        left: calc(100%/2 + 79px);
+    }
+    .cards__card:hover:nth-child(5)::after{
+        top: 1128px;   
+        left: calc(100%/2 - 164px);
+    }
+    .footer__title{
+        font-size: 25px;
+    }
+    .footer__browsers img{
+        width: 35px;
+    }
+    .footer__wrap > div{
+        width: 27%;
+    }
+    .footer__wrap{
+        margin-left: 2.7%;
+    }
+    .content__lateral {
+        width: 215px;
+    }
+    .article__datos{
+        font-size: 10px;
+    }
+    .miembros__card{
+        width: 120px;
+        height: 120px;
+    }
+    .miembros__card .card__fotos{
+        height: 70px;
+        width: 70px;
+    }
+    .miembros__card:first-child{
+        margin-left: 30px;
+    }
+    .card__name{
+        font-size: 10px;
+    }
+}
+
+
