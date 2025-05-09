@@ -15,7 +15,7 @@
             <!-- Formulario de Usuario -->
             <form id="user-register-form" method="post">
                 <div class="form-group">
-                    <label for="name">Nombre completo*</label>
+                    <label for="name">Nombre de usuario*</label>
                     <input type="text" id="nombre" name="nombre" required>
                     <div id="name-error" class="error" hidden>El nombre tiene que tener por lo menos 3 caracteres</div>
                 </div>
@@ -43,7 +43,7 @@
                     <input type="password" id="confirmar_contrasena" name="confirmar_contrasena" required>
                     <div id="confirm-password-error" class="error" hidden>Las contraseñas no coinciden</div>
                 </div>
-                
+                <div class="g-recaptcha" data-sitekey="6LeUfTMrAAAAADZ95SmOVcuyRucb5R8wR2b6s5PV"></div>
                 <button type="submit" disabled>Registrarse</button>
             </form>
             
@@ -69,8 +69,6 @@
                             data-logo_alignment="left">
                         </div>
                     </div>
-                    <button class="social-btn apple" id="apple-login">Apple</button>
-                    <button class="social-btn facebook" id="facebook-login">Facebook</button>
                 </div>
             </div>
         </div>
@@ -81,5 +79,6 @@
     <script src="signup.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="../google/jwt-decode.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>

@@ -5,6 +5,11 @@ window.onload = function () {
 
     boton.addEventListener("click", function (e) {
         e.preventDefault(); // Evita que el formulario recargue la página
+        const token = grecaptcha.getResponse();
+        if (!token) {
+            alert('Por favor completa el reCAPTCHA');
+            return;
+        }
         let errores =[...document.getElementsByClassName("error")];
         if (form.checkValidity()&&!errores.some(e => !e.hidden)) {
             // Obtener datos del formulario
@@ -51,7 +56,7 @@ window.onload = function () {
                 })
                 .then(function (datos) {
                       if (datos.error){
-                        alert("El correo ya esta registrado");
+                        alert(datos.error);
                       }
                       else {
                         const usuario = formObject;

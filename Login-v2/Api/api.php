@@ -15,6 +15,21 @@
     // Lee los datos JSON enviados por el cuerpo de la solicitud
     $entrada = json_decode(file_get_contents('php://input'), true);
 
+    // Leer token de reCAPTCHA si está presente
+    $recaptchaToken = $entrada["recaptchaToken"] ?? $_GET["recaptchaToken"] ?? null;
+
+    // Verifica reCAPTCHA solo si se envió un token
+    if ($recaptchaToken) {
+        $verificacion = verificarRecaptcha($recaptchaToken);
+        if (!$verificacion["success"]) {
+            exit(json_encode(["error" => $verificacion["error"]]));
+        }
+        else {
+            unset($entrada["recaptchaToken"]);
+            unset($_GET["recaptchaToken"]);
+        }
+    }
+
     // Obtiene el nombre de la tabla desde los parámetros de la URL
     $tabla = $_GET['tabla'] ?? null;
 
@@ -41,7 +56,7 @@
     
     // Función para obtener datos de una tabla con filtros opcionales
     function obtenerDatos($conexion, $tabla, $condiciones) {
-        unset($condiciones["tabla"]); // Elimina el parámetro "tabla" del filtro
+        unset($condiciones["tabla"], $condiciones["recaptchaToken"], $condiciones["g-recaptcha-response"]); // Elimina el parámetro "tabla" del filtro y el recaptcha
         $sql = "SELECT * FROM $tabla";
         $valores = [];
         if (!empty($condiciones)) {
@@ -56,6 +71,7 @@
 
     // Función para insertar datos en una tabla
     function insertarDatos($conexion, $tabla, $datos) {
+        unset($datos["recaptchaToken"], $datos["g-recaptcha-response"]);
         if (!$datos) exit(json_encode(["error" => "Datos inválidos"]));
     
         try {
@@ -68,7 +84,8 @@
                 // Manejar error de clave duplicada
                 preg_match("/Duplicate entry .* for key '(.*?)'/", $e->getMessage(), $matches);
                 $campo = $matches[1] ?? 'campo_desconocido';
-                echo json_encode(["error" => "El valor ya existe para $campo"]);
+                $partes = explode('.', $campo);
+                echo json_encode(["error" => "El valor ya existe para $partes[1]"]);
             } else {
                 echo json_encode(["error" => $e->getMessage()]);
             }
@@ -77,7 +94,7 @@
 
     // Función para actualizar datos en una tabla
     function actualizarDatos($conexion, $tabla, $datos, $condiciones) {
-        unset($condiciones["tabla"]);
+        unset($condiciones["tabla"], $condiciones["recaptchaToken"], $condiciones["g-recaptcha-response"]);
         if (!$datos || !$condiciones) exit(json_encode(["error" => "Datos o condiciones inválidos"]));
         // Construye la sentencia SQL con parámetros preparados
         $sql = "UPDATE $tabla SET " . implode('=?, ', array_keys($datos)) . "=? WHERE " .
@@ -93,12 +110,24 @@
 
     // Función para eliminar datos de una tabla
     function eliminarDatos($conexion, $tabla, $condiciones) {
-        unset($condiciones["tabla"]);
+        unset($condiciones["tabla"], $condiciones["recaptchaToken"], $condiciones["g-recaptcha-response"]);
         if (!$condiciones) exit(json_encode(["error" => "Debe especificar condiciones para eliminar"]));
         $sql = "DELETE FROM $tabla WHERE " .
                implode(" AND ", array_map(fn($col) => "$col = ?", array_keys($condiciones)));
         $consulta = $conexion->prepare($sql);
         $resultado = $consulta->execute(array_values($condiciones));
         echo json_encode(["mensaje" => $resultado ? "Registro eliminado correctamente" : "Error al eliminar"]);
+    }
+
+    function verificarRecaptcha($token) {
+        $secret = "6LeUfTMrAAAAAHWq2bNmhLt4KXfr1fafnlk0g7IJ";
+        if (!$token) return ["success" => false, "error" => "Falta el token de reCAPTCHA"];
+    
+        $respuesta = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$token");
+        $resultado = json_decode($respuesta, true);
+    
+        return $resultado["success"]
+            ? ["success" => true]
+            : ["success" => false, "error" => "Verificación reCAPTCHA fallida"];
     }
 ?>

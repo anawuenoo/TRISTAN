@@ -21,6 +21,7 @@
                     <label for="contrasena">Contraseña*</label>
                     <input type="password" id="contrasena" name="contrasena" required>
                 </div>
+                <div class="g-recaptcha" data-sitekey="6LeUfTMrAAAAADZ95SmOVcuyRucb5R8wR2b6s5PV"></div>
                 <button type="submit">Iniciar sesión</button>
             </form>
             
@@ -46,17 +47,15 @@
                             data-logo_alignment="left">
                         </div>
                     </div>
-                    <button class="social-btn apple" id="apple-login">Apple</button>
-                    <button class="social-btn facebook" id="facebook-login">Facebook</button>
                 </div>
             </div>
         </div>
     </div>
 
-
     <script src="../google/google.js"></script>
     <script src="login.js"></script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="../google/jwt-decode.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </body>
 </html>
