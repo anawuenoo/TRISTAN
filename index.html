@@ -36,17 +36,18 @@
       </nav>
       
       <div class="buttons">
-        <button class="botonIniciar"><a href="Login-v2/login/login.html">Inicar Sesión</a></button>
-        <button class="btnRegistro"><a href="Login-v2/signup/signup.html">Registrarse </a></button>
+        <button class="botonIniciar"><a class="texto-boton" href="Login-v2/login/login.html">Inicar Sesión</a></button>
+        <button class="btnRegistro"><a class="texto-botonRe" href="Login-v2/signup/signup.html">Registrarse </a></button>
       </div>
     </div>
   </header>
   <!-- fin de la Cabecera -->
   
   <div class="content__buscador">
-    <input type="text" placeholder="Buscar..." class="buscador__text">
-    <button class="buscador__button">Buscar</button>
-    
+    <div class="content__banner">
+      <input type="text" placeholder="Buscar..." class="buscador__text">
+      <button class="buscador__button">Buscar</button>
+    </div>
   </div>
   <div id="carouselExample" class="carousel slide">
     <div class="carousel-inner">
@@ -233,10 +234,10 @@
           </p>
         </div>
         <div class="carta_producto">
-          <img class="imgautor" src="./img/Maria_josé_autora.jpg" alt="Libro 1" />
+          <img class="imgautor" src="./img/Fernando_Gómez_autor.jpg" alt="Libro 1" />
           <p>
             <b> 
-              = Maria Jose = <br />Descripcion</b>
+              = Fernando Gómez = <br />Descripcion</b>
           </p>
         </div>
         <!-- Tarjeta del segundo producto -->
@@ -256,17 +257,57 @@
    
   <!-- Inicio de Pié de Página -->
   <!-- Coloca esto FUERA de cualquier contenedor limitado -->
-<footer class="footer">
-  <div class="footer__wrap">
-  <div class="footer__social">
-    <button class="footer__button">REDES SOCIALES</button>
-    <div class="footer__icons">
-      <a href="#"><img src="img/facebook.png" alt="Facebook"></a>
-      <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
-      <a href="#"><img src="img/twitter.png" alt="X/Twitter"></a>
+  <footer class="footer">
+    <div class="footer__wrap">
+        <!-- Contenido izquierda (redes sociales) -->
+        <div class="footer-left">
+            <div class="footer__social">
+                <button class="footer__button">REDES SOCIALES</button>
+                <div class="footer__icons">
+                    <a href="#"><img src="img/facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="img/twitter.png" alt="X/Twitter"></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright centrado -->
+        <div class="footer-center">
+            <p class="footer_copy">© 2025 Tristan: Behind The Books - Todos los derechos reservados</p>
+        </div>
+
+        <!-- Newsletter a la derecha -->
+        <div class="footer-right">
+            <form class="newsletter-form">
+                <div class="newsletter-header">
+                    <span class="newsletter-label">Newsletter</span>
+                    <input type="email" placeholder="Tu email" required>
+                </div>
+                <div class="newsletter-options">
+                    <label class="newsletter-checkbox">
+                        <input type="checkbox" name="newsletter-all" checked>
+                        <span>Todas</span>
+                    </label>
+                    <label class="newsletter-checkbox">
+                        <input type="checkbox" name="newsletter-poetry">
+                        <span>Poesía</span>
+                    </label>
+                    <label class="newsletter-checkbox">
+                        <input type="checkbox" name="newsletter-literature">
+                        <span>Literatura</span>
+                    </label>
+                    <label class="newsletter-checkbox">
+                        <input type="checkbox" name="newsletter-fantasy">
+                        <span>Fantasía</span>
+                    </label>
+                    <label class="newsletter-checkbox">
+                        <input type="checkbox" name="newsletter-children">
+                        <span>Infantil</span>
+                    </label>
+                </div>
+            </form>
+        </div>
     </div>
-  </div>
-  </div>
 </footer>
   <!-- fin de Pié de Página -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

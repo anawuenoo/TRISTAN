@@ -11,7 +11,11 @@
   font-weight: normal;
   font-style: normal;
 }
-
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 /* https://www.fontsquirrel.com/fonts/web-symbols */
 @font-face {
   font-family: "WebSymbolsRegular";
@@ -241,7 +245,7 @@ body {
   width: 95.5%;
   height: 100px;
   border: 10px solid var(--color-primary);
-  margin: 10px;
+  margin: 10px auto; /* Cambiado para centrar horizontalmente */
   box-shadow: 0px 0px 2px var(--color-grey);
   background: url("../img/banner2.jpg");
   background-size: cover;
@@ -251,16 +255,7 @@ body {
   justify-content: center;
   overflow: hidden;
   animation: fondoBanner 10s infinite linear;
-}
-
-.content__banner h1 {
-  font-family: "BebasNeue";
-  color: var(--color-cartas);
-  font-size: 45px;
-  letter-spacing: 2px;
-  text-shadow: 2px 2px 1px var(--color-bg);
-  opacity: 0;
-  animation: fundidoDesdeCentro 3s ease forwards;
+  position: relative; /* Añadido para posicionar el buscador */
 }
 
 /* Keyframes para el efecto de fundido */
@@ -304,6 +299,10 @@ body {
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
   margin-right: 10px;
+  
+}
+.texto-boton{
+  color: #000000;
 }
 
 /* Efecto hover */
@@ -323,6 +322,9 @@ body {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
+}
+.texto-botonRe{
+color:#ffffff;
 }
 
 /* Efecto hover secundario
@@ -856,14 +858,15 @@ originario mio (Ismael Pérez Soler) por ello mismo el nombre de las clases esta
 
 /* Comienzo del FOOTER */
 .footer {
-  display: flex;
-  justify-content: space-between;
+  background-color: #A38852;
+  height:90px;
+  display:flex;
+  justify-content:center;
   align-items: center;
-  width: 100%;
-  height: 90px;
   background-color:var(--color-banner);
   font-family: "BebasNeue";
   color: var(--color-text-white);
+  font-size: 20px;
 }
 
 .footer__social {
@@ -903,6 +906,116 @@ originario mio (Ismael Pérez Soler) por ello mismo el nombre de las clases esta
 
 .footer__icons img:hover {
   transform: scale(1.1);
+}
+
+.footer_copy{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--mx-width);
+  margin: 0px auto;
+}
+/* Newsletter Styles */
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 350px;
+}
+
+.newsletter-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.newsletter-label {
+  font-family: "BebasNeue";
+  font-size: 1.3rem;
+  color: white;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.newsletter-header input {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 4px;
+  font-family: "TrebuchetMS";
+  background: rgba(255, 255, 255, 0.9);
+  min-width: 200px;
+  flex-grow: 1;
+}
+
+.newsletter-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.newsletter-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-family: "TrebuchetMS";
+  color: white;
+  font-size: 0.85rem;
+  gap: 0.3rem;
+  white-space: nowrap;
+}
+
+.newsletter-checkbox input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: #8e44ad;
+  margin: 0;
+}
+
+.newsletter-checkbox span {
+  transition: color 0.3s;
+}
+
+.newsletter-checkbox:hover span {
+  color: #da9d1c;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer__wrap {
+      grid-template-columns: 1fr;
+      gap: 15px;
+      text-align: center;
+  }
+  
+  .footer-left,
+  .footer-center,
+  .footer-right {
+      justify-self: center;
+  }
+  
+  .newsletter-form {
+      max-width: 100%;
+  }
+  
+  .newsletter-header {
+      justify-content: center;
+  }
+  
+  .newsletter-options {
+      justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .newsletter-header {
+      flex-direction: column;
+      gap: 5px;
+  }
+  
+  .newsletter-header input {
+      width: 100%;
+  }
 }
 /* Fin del footer */
 
@@ -959,7 +1072,7 @@ h2{
   font-size: 30px;
 }
 .texto_p{
-  ont-family: "BebasNeue";
+  font-family: "BebasNeue";
   color: var(--color-text-black);
   font-size: 20px;
 }
