@@ -50,6 +50,8 @@
   --color-buscador-fondo: #dbbf85;
   --color-buscador:#a19886;
   --color-buscador-barra:#eef5f5;
+  --color-button-ft:#d1ba8b;
+  --color-efecto:#f7e0b3;
 
 }
 
@@ -146,6 +148,7 @@ body {
 .header__menu {
   display: flex;
   align-items: center;
+  
 }
 
 .menu__list {
@@ -165,7 +168,7 @@ body {
 }
 
 .list__item:hover a {
-  color: var(--color-primary);
+  color: var(--color-efecto);
   transform: scale(1.1);
 }
 
@@ -184,12 +187,6 @@ body {
   }
 }
 
-/*Efecto hover en Logo*/
-.header__logo:hover {
-  border-radius: 5px;
-  background-color: var(--color-backgroung);
-  color: #b99b38;
-}
 
 /*Animación hover*/
 .header__logo:hover .logo__book {
@@ -238,6 +235,7 @@ body {
   color: var(--color-primary);
   transform: scale(1.1);
 }
+
 
 /*Inicio banner - ajustes y personalización*/
 
@@ -438,7 +436,19 @@ color:#ffffff;
 .texto_principal{
   text-align: center;
   font-family: "BebasNeue";
-  font-size: 25px;
+  display: block;
+  width: 100%;
+  height: 75px;
+  line-height: 75px; /* centra el texto */
+  text-align: center;
+  font-size: 40px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  background: url("../img/pxgray.png"), var(--color-button-ft);
+  box-shadow: 0px 1px 0px var(--color-box-shadow2), 1px 2px 0px var(--color-box-shadow2), 2px 3px 0px var(--color-box-shadow2), 3px 4px 0px var(--color-box-shadow2);
+  margin: 0px auto;
+  margin-top: 20px;
+  margin-bottom: 15px;
  
 }
 
@@ -1019,7 +1029,7 @@ originario mio (Ismael Pérez Soler) por ello mismo el nombre de las clases esta
 }
 /* Fin del footer */
 
-/*autores*/
+/*INICIO AUTORES*/
 .container{
   display: flex;
   gap: 40px;
@@ -1080,7 +1090,7 @@ h2{
 .autor-info {
   display: flex;
   align-items: flex-start;
-  gap: 300px;
+  gap: 100px;
 }
 
 .autorimg {
@@ -1090,10 +1100,9 @@ h2{
 .autor-texto {
   flex: 1;
 }
-
+/*FIN DE AUTORES*/
 
 /*Noticias*/
-
 
 .noticias-container {
   display: flex;
@@ -1348,3 +1357,85 @@ h2{
 }
 
 
+.dropdown-item{
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-family: "BebasNeue";
+  font-size: 15px;
+}
+
+
+/*AUTOR LIBROS*/
+.container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.titulo-libro {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 2rem;
+}
+
+.book-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.book-info {
+  flex: 1 1 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.book-info h2 {
+  font-size: 30px;
+  margin-bottom: 1rem;
+  color: #000000;
+  font-family: "BebasNeue";
+}
+
+.info-block h3 {
+  font-size: 25px;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+  color: #000000;
+  font-family: "BebasNeue";
+}
+
+.info-block p,
+select {
+  font-size: 20px;
+  color: #2b2b2b;
+  padding: 0.3rem 0;
+  font-family: "BebasNeue";
+}
+
+select {
+  padding: 1.5rem;
+  font-size: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.book-cover {
+  flex: 1 1 35%;
+  display: flex;
+  justify-content: center;
+}
+
+.book-cover img {
+  max-width: 70%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.opciones{
+  font-size: 10px;
+}
