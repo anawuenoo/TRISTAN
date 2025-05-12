@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Formulario de Usuario -->
+        <div id="login-form">
+            <h1>Inicia sesion</h1>
+            <form id="user-login-form">
+                <div class="form-group">
+                    <label for="correo">Correo electrónico*</label>
+                    <input type="text" id="correo" name="correo" required>
+                    <div id="email-invalido" class="error" hidden>No es un correo valido</div>
+                </div>
+                <div class="form-group">
+                    <label for="contrasena">Contraseña*</label>
+                    <input type="password" id="contrasena" name="contrasena" required>
+                </div>
+                <button type="submit">Iniciar sesión</button>
+            </form>
+            
+            <div class="toggle-form">
+                ¿No tienes una cuenta? <a id="show-login" href="../signup/signup.html">Registrarse</a>
+            </div>
+    
+            <div class="social-login">
+                <p>O inicia sesión con:</p>
+                <div class="social-buttons">
+                    <div id="google">
+                        <div id="g_id_onload"
+                            data-client_id="233289936097-5c63jhmdttlrvj358l4sshif3uqerdlq.apps.googleusercontent.com"
+                            data-callback="handleCredentialResponse"
+                            data-auto_prompt="false">
+                        </div>
+                        <div class="g_id_signin"
+                            data-type="standard"
+                            data-size="large"
+                            data-theme="outline"
+                            data-text="sign_in_with"
+                            data-shape="rectangular"
+                            data-logo_alignment="left">
+                        </div>
+                    </div>
+                    <button class="social-btn apple" id="apple-login">Apple</button>
+                    <button class="social-btn facebook" id="facebook-login">Facebook</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../google/google.js"></script>
+    <script src="login.js"></script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="../google/jwt-decode.min.js"></script>
+</body>
+</html>
