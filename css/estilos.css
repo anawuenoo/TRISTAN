@@ -237,6 +237,7 @@ body {
 }
 
 
+
 /*Inicio banner - ajustes y personalización*/
 
 .content__banner {
@@ -1056,6 +1057,7 @@ h2{
   margin-top:5px
 }
 
+/*Index carrusel*/
 #carouselExample {
   width: 100vw;
   max-height: 500px;
@@ -1067,6 +1069,30 @@ h2{
   object-fit: cover;
   height: 500px;
   width: 100%;
+}
+
+/*Autor carrusel*/
+#carouselAutores {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden; /* Oculta cualquier desbordamiento */
+}
+
+.carousel-inner {
+  display: flex;
+  align-items: center; /* Centra verticalmente las imágenes */
+}
+
+.carousel-item {
+  text-align: center; /* Centra horizontalmente la imagen */
+}
+
+.carousel-item img {
+  object-fit: contain; /* Cambiado de 'cover' a 'contain' para mostrar toda la imagen */
+  max-height: 500px;
+  width: auto;
+  max-width: 100%;
+  margin: 0 auto; /* Centra la imagen horizontalmente */
 }
 
 .autorimg{

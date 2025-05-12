@@ -1,4 +1,0 @@
-<IfModule mod_headers.c>
-    Header unset Cross-Origin-Opener-Policy
-    Header unset Cross-Origin-Embedder-Policy
-</IfModule>

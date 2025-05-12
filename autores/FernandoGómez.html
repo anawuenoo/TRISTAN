@@ -7,10 +7,10 @@
   <!-- user_scalable = no - es para que el usuario no pueda realizar zoom con los 2 dedos. -->
   <meta name="viewport" content="width=device-width, user-scalable=no" />
   <title>Tristan: Behind The Books</title>
-  <link rel="shortcut icon" href="img/icono-web/libro-icono.svg" type="image/x-icon" />
-  <link rel="stylesheet" href="css/reset_estilos.css" />
-  <link rel="stylesheet" href="css/estilos.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="shortcut icon" href="../img/icono-web/libro-icono.svg" type="image/x-icon" />
+  <link rel="stylesheet" href="../css//reset_estilos.css" />
+  <link rel="stylesheet" href="../css/estilos.css" />
+  <link rel="stylesheet" href="../css/responsive.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   
 </head>
@@ -20,17 +20,17 @@
   <header class="header">
     <div class="header__wrap">
       <div class="header__logo">
-        <img src="./img/logo.png" alt="Logo Librería" class="logo__img" />
+        <img src="../img/logo.png" alt="Logo Librería" class="logo__img" />
         <!-- Agregamos el nombre aquí -->
         
       </div>
       <nav class="header__menu">
         <ul class="menu__list">
-          <li class="list__item"><a href="index.html">INICIO</a></li>
+          <li class="list__item"><a href="../index.html">INICIO</a></li>
           <li class="list__item"><a href="#">CATEGORIAS</a></li>
           <li class="list__item"><a href="autores.html">AUTORES</a></li>
           <li class="list__item"><a href="#">NOTICIAS</a></li>
-          <li class="list__item"><a href="suscripciones.html">SUSCRIPCIONES</a></li>
+          <li class="list__item"><a href="../suscripciones.html">SUSCRIPCIONES</a></li>
           <li class="list__item"><a href="#">CONTACTO</a></li>
         </ul>
       </nav>
@@ -42,76 +42,63 @@
     </div>
   </header>
   <!-- fin de la Cabecera -->
-  <section class="planes">
-    <h2 class="texto_principal">SUBSCRIPCIONES</h2>
-    <div class="planes-container">
-      <div class="plan-box">
-        <div class="plan-title basico">BÁSICO</div>
-        <ul>
-          <br>
-          <li class="texto-plano"><strong>Precio mensual</strong><br>4,99 €</li>
-          <p>-------------------------------------------------------</p>
-          <li class="texto-plano"><strong>Descargas</strong><br>5 descargas al mes</li>
-          <p>-------------------------------------------------------</p>
-          <li class="texto-plano"><strong>Ofertas personalizadas</strong><br>3 ofertas mensuales</li>
-          <p>-------------------------------------------------------</p>
-          <li class="texto-plano"><strong>Solicitudes de libros</strong><br>2 solicitudes al mes</li>
-        </ul>
-        <button class="subscribe-button">Suscribirse</button>
+  <br>
+  <br>
+  <br>
+  <main class="content__wrap">
+  <div class="container">
+    <div class="autor">
+      <div class="autor-info">
+        <img class="autorimg" src="../img/Fernando_Gómez_autor.jpg" alt="Andrea"/>
+        <div class="autor-texto">
+          <p class="texto_autor"><strong>Fernando Gómez</strong></p>
+          <div class="texto_autor">Descripción</div>
+          <p class="texto_p">Una malagueña que adora leer, escribir, el dibujo y las artes marciales. Osteópata de profesión, artista por afición.</p>
+        </div>
       </div>
-  
-      <div class="plan-box">
-        <div class="plan-title estandar">ESTÁNDAR / FLEX</div>
-        <ul>
-          <br>
-          <li class="texto-plano"><strong>Precio mensual</strong><br>8,99 €</li>
-          <p>-------------------------------------------------------</p>
-          <li class="texto-plano"><strong>Descargas</strong><br>10 descargas al mes</li>
-          <p>-------------------------------------------------------</p>
-          <li class="texto-plano"><strong>Ofertas personalizadas</strong><br>5 ofertas mensuales</li>
-          <p>-------------------------------------------------------</p>
-          <li class="texto-plano"><strong>Solicitudes de libros</strong><br>3 solicitudes al mes</li>
-        </ul>
-        <button class="subscribe-button">Suscribirse</button>
+    </div> 
+   </div>
+   </div>
+   </main>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <main class="container">
+    <!-- <h1 class="titulo-libro">LIBROS</h1> -->
+
+    <div id="carouselAutores" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="carousel-item active"> 
+        <img src="../img/CarruselFernando.png" class="d-block w-100" alt="...">
       </div>
-  
-      <div class="plan-box">
-        <div class="plan-title premium">PREMIUM</div>
-        <ul>
-          <br>
-          <li class="texto-plano"><strong>Precio mensual</strong><br>13,99 €</li>
-          <p>-------------------------------------------------------</p>
-          <li class="texto-plano"><strong>Descargas</strong><br>Ilimitado</li>
-          <p>-------------------------------------------------------</p>
-          <li class="texto-plano"><strong>Ofertas personalizadas</strong><br>10 ofertas mensuales</li>
-          <p>-------------------------------------------------------</p>
-          <li class="texto-plano"><strong>Solicitudes de libros</strong><br>5 solicitudes al mes</li>
-        </ul>
-        <button class="subscribe-button">Suscribirse</button>
+      <div class="carousel-item active"> 
+        <img src="../img/CarruselFernando2.png" class="d-block w-100" alt="...">
       </div>
     </div>
-  </section>
-  
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-   
-  <!-- Inicio de Pié de Página -->
-  <!-- Coloca esto FUERA de cualquier contenedor limitado -->
-  <footer class="footer">
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselAutores" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselAutores" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  </main>
+   <footer class="footer">
     <div class="footer__wrap">
         <!-- Contenido izquierda (redes sociales) -->
         <div class="footer-left">
             <div class="footer__social">
                 <button class="footer__button">REDES SOCIALES</button>
                 <div class="footer__icons">
-                    <a href="#"><img src="img/facebook.png" alt="Facebook"></a>
-                    <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
-                    <a href="#"><img src="img/twitter.png" alt="X/Twitter"></a>
+                    <a href="#"><img src="../img/facebook.png" alt="Facebook"></a>
+                    <a href="#"><img src="../img/instagram.png" alt="Instagram"></a>
+                    <a href="#"><img src="../img/twitter.png" alt="X/Twitter"></a>
                 </div>
             </div>
         </div>
