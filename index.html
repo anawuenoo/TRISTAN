@@ -27,7 +27,23 @@
       <nav class="header__menu">
         <ul class="menu__list">
           <li class="list__item"><a href="index.html">INICIO</a></li>
-          <li class="list__item"><a href="#">CATEGORIAS</a></li>
+          <li class="list__item">
+            <a class="item__texto" href="#">CATEGORIAS <p class="texto__desplegable">;</p></a>
+            <ul class="list__submenu">
+                <li class="submenu__item">
+                    <a href="#" class="submenu__title">Cientificos</a>
+                </li>
+                <li class="submenu__item">
+                    <a href="#" class="submenu__title">Biografias</a>
+                </li>
+                <li class="submenu__item">
+                    <a href="#" class="submenu__title">Ficcion</a>
+                </li>
+                <li class="submenu__item">
+                    <a href="#" class="submenu__title">Comedia</a>
+                </li>
+            </ul>
+          </li>
           <li class="list__item"><a href="autores.html">AUTORES</a></li>
           <li class="list__item"><a href="#">NOTICIAS</a></li>
           <li class="list__item"><a href="suscripciones.html">SUSCRIPCIONES</a></li>
@@ -44,11 +60,9 @@
   <!-- fin de la Cabecera -->
   
   <div class="content__buscador">
-    <div class="content__banner">
-      <input type="text" placeholder="Buscar..." class="buscador__text">
-      <button class="buscador__button">Buscar</button>
-    </div>
-  </div>
+    <input type="text" placeholder="Buscar..." class="buscador__text">
+    <button class="buscador__button">Buscar</button>
+</div>
   <div id="carouselExample" class="carousel slide">
     <div class="carousel-inner">
       <div class="carousel-item active">
