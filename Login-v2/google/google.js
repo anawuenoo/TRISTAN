@@ -1,5 +1,5 @@
 window.handleCredentialResponse = function (response) {
-  const redireccion = "inicio.html";
+  const redireccion = "../../index.html";
   const jwt = response.credential;
 
   // Decodificar el JWT (solo el payload, no verifica firma, pero útil para frontend)
@@ -7,7 +7,7 @@ window.handleCredentialResponse = function (response) {
   const google_sub = payload.sub;
 
   // Primero intentamos buscar el usuario por google_sub
-  const url = "http://localhost/Login-v2/Api/api.php?tabla=usuarios&google_sub=" + google_sub;
+  const url = "http://localhost/TRISTAN/Login-v2/Api/api.php?tabla=usuarios&google_sub=" + google_sub;
   let options;
   
   fetch(url)
@@ -42,7 +42,7 @@ window.handleCredentialResponse = function (response) {
       } else {
         // Usuario no existe, buscar por correo en lugar de google_sub
         const correo = payload.email;
-        const urlCorreo = "http://localhost/Login-v2/Api/api.php?tabla=usuarios&correo=" + correo;
+        const urlCorreo = "http://localhost/TRISTAN/Login-v2/Api/api.php?tabla=usuarios&correo=" + correo;
 
         fetch(urlCorreo)
           .then(function (respuesta) {
@@ -60,7 +60,7 @@ window.handleCredentialResponse = function (response) {
             if (datosCorreo.length > 0) {
               // El usuario ya existe, actualizar google_sub
               const usuarioExistente = datosCorreo[0];
-              const urlActualizar = "http://localhost/Login-v2/Api/api.php?tabla=usuarios&correo="+correo;
+              const urlActualizar = "http://localhost/TRISTAN/Login-v2/Api/api.php?tabla=usuarios&correo="+correo;
               const nuevoSub = { google_sub: google_sub };
 
               options = {
@@ -114,7 +114,7 @@ window.handleCredentialResponse = function (response) {
                 body: JSON.stringify(nuevoUsuario)
               };
 
-              const urlCreacion = "http://localhost/Login-v2/Api/api.php?tabla=usuarios";
+              const urlCreacion = "http://localhost/TRISTAN/Login-v2/Api/api.php?tabla=usuarios";
               fetch(urlCreacion, options)
                 .then(function (respuesta) {
                   if (!respuesta.ok) {

@@ -39,21 +39,44 @@
             echo json_encode(["error" => "Método no permitido"]);
     }
     
-    // Función para obtener datos de una tabla con filtros opcionales
     function obtenerDatos($conexion, $tabla, $condiciones) {
-        unset($condiciones["tabla"]); // Elimina el parámetro "tabla" del filtro
+        unset($condiciones["tabla"]);
         $sql = "SELECT * FROM $tabla";
         $valores = [];
+    
         if (!empty($condiciones)) {
-            // Construye cláusula WHERE con parámetros preparados
-            $sql .= " WHERE " . implode(" AND ", array_map(fn($col) => "$col = ?", array_keys($condiciones)));
-            $valores = array_values($condiciones);
+            if ($tabla == "libros") {
+                $searchTerm = $condiciones['titulo'] ?? '';
+    
+                // Asegúrate de que no esté vacío y procesar el término de búsqueda
+                if (!empty($searchTerm)) {
+                    // Opción 1: Búsqueda con LIKE para encontrar libros cuyo título contenga la palabra
+                    $sql .= " WHERE titulo LIKE ?";
+                    $valores[] = "%$searchTerm%";
+                }
+    
+                // Opción 2: Búsqueda con LEVENSHTEIN para coincidencias aproximadas (si es necesario)
+                $sql .= " OR LEVENSHTEIN(LOWER(titulo), LOWER(?)) <= 3"; // Ajusta el 3 según necesidad
+                $valores[] = $searchTerm;
+    
+                // Ordenar por relevancia usando LEVENSHTEIN
+                $sql .= " ORDER BY LEVENSHTEIN(LOWER(titulo), LOWER(?)) ASC";
+                $valores[] = $searchTerm;
+            } else {
+                // Para otras tablas
+                $sql .= " WHERE " . implode(" AND ", array_map(fn($col) => "$col = ?", array_keys($condiciones)));
+                $valores = array_values($condiciones);
+            }
         }
+    
         $consulta = $conexion->prepare($sql);
         $consulta->execute($valores);
-        echo json_encode($consulta->fetchAll()); // Devuelve resultados como JSON
+        echo json_encode($consulta->fetchAll());
     }
-
+    
+    
+    
+    
     // Función para insertar datos en una tabla
     function insertarDatos($conexion, $tabla, $datos) {
         if (!$datos) exit(json_encode(["error" => "Datos inválidos"]));

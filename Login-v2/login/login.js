@@ -15,7 +15,7 @@ window.onload = function () {
             const params = new URLSearchParams(formObject).toString();
 
             // Añadir parámetros a la URL
-            const url = "http://localhost/Login-v2/Api/api.php?tabla=usuarios&" + params;
+            const url = "http://localhost/TRISTAN/Login-v2/Api/api.php?tabla=usuarios&" + params;
 
             fetch(url)
                 .then(function (respuesta) {
@@ -33,7 +33,7 @@ window.onload = function () {
                 .then(function (datos) {
                     if (datos && Object.keys(datos).length > 0) {
                         localStorage.setItem("usuario", JSON.stringify(datos));
-                        window.location.href = "inicio.html";
+                        window.location.href = "../../index.html";
                     } else {
                         alert("Datos incorrectos");
                     }

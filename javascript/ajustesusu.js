@@ -1,0 +1,31 @@
+// Verificar si el usuario está logueado al cargar la página
+document.addEventListener('DOMContentLoaded', function() {
+  checkLoginStatus();
+});
+
+function checkLoginStatus() {
+  const usuario = localStorage.getItem('usuario');
+  const authButtons = document.getElementById('auth-buttons');
+  const userSection = document.getElementById('user-section');
+  
+  if (usuario) {
+    // Ocultar botones de login/registro y mostrar sección de usuario
+    authButtons.style.display = 'none';
+    userSection.style.display = 'block';
+    
+    // Mostrar el nombre del usuario
+    document.getElementById('username-display').textContent = usuario;
+  } else {
+    // Mostrar botones de login/registro y ocultar sección de usuario
+    authButtons.style.display = 'block';
+    userSection.style.display = 'none';
+  }
+}
+
+// Manejar el cierre de sesión
+document.getElementById('logout-btn')?.addEventListener('click', function(e) {
+  e.preventDefault();
+  localStorage.removeItem('usuario');
+  checkLoginStatus();
+  window.location.href = 'index.html'; // Redirigir a la página principal
+});
