@@ -33,7 +33,7 @@ window.onload = function () {
                 .then(function (datos) {
                     if (datos && Object.keys(datos).length > 0) {
                         localStorage.setItem("usuario", JSON.stringify(datos));
-                        window.location.href = "inicio.html";
+                        window.location.href = "../../index.html";
                     } else {
                         alert("Datos incorrectos");
                     }

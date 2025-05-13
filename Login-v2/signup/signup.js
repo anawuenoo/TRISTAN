@@ -64,7 +64,7 @@ window.onload = function () {
                         rol: usuario.rol,
                         sexo: usuario.sexo,
                         }));
-                        window.location.href = "inicio.html";
+                        window.location.href = "../../index.html";
                       }
                 })
                 .catch(function (error) {

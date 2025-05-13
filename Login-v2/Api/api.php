@@ -39,21 +39,43 @@
             echo json_encode(["error" => "Método no permitido"]);
     }
     
-    // Función para obtener datos de una tabla con filtros opcionales
     function obtenerDatos($conexion, $tabla, $condiciones) {
         unset($condiciones["tabla"]); // Elimina el parámetro "tabla" del filtro
         $sql = "SELECT * FROM $tabla";
         $valores = [];
+        
         if (!empty($condiciones)) {
-            // Construye cláusula WHERE con parámetros preparados
-            $sql .= " WHERE " . implode(" AND ", array_map(fn($col) => "$col = ?", array_keys($condiciones)));
-            $valores = array_values($condiciones);
+            // Si la tabla es "usuarios", se utiliza la comparación exacta
+            if ($tabla == "usuarios") {
+                $sql .= " WHERE " . implode(" AND ", array_map(fn($col) => "$col = ?", array_keys($condiciones)));
+                $valores = array_values($condiciones);
+            } else {
+                // Usamos LIKE para permitir coincidencias parciales
+                $sql .= " WHERE " . implode(" AND ", array_map(fn($col) => "LOWER($col) LIKE LOWER(?)", array_keys($condiciones)));
+                $valores = array_map(fn($valor) => "%$valor%", array_values($condiciones));
+            }
+    
+            // Añadir el uso de LEVENSHTEIN para encontrar coincidencias con errores tipográficos
+            $sql .= " OR ";
+            $lvConditions = [];
+            foreach ($condiciones as $col => $valor) {
+                // Aplica LEVENSHTEIN para comprobar similitud con el término de búsqueda
+                $lvConditions[] = "LEVENSHTEIN(LOWER($col), LOWER(?)) < 20";  // Ajusta el valor '2' según el nivel de tolerancia
+                $valores[] = $valor;
+            }
+    
+            // Añade el condicional de LEVENSHTEIN a la consulta
+            if (!empty($lvConditions)) {
+                $sql .= implode(" OR ", $lvConditions);  // Si hay coincidencias aproximadas, las incluye
+            }
         }
+    
+        // Prepara y ejecuta la consulta
         $consulta = $conexion->prepare($sql);
         $consulta->execute($valores);
-        echo json_encode($consulta->fetchAll()); // Devuelve resultados como JSON
+        echo json_encode($consulta->fetchAll()); // Devuelve los resultados como JSON
     }
-
+    
     // Función para insertar datos en una tabla
     function insertarDatos($conexion, $tabla, $datos) {
         if (!$datos) exit(json_encode(["error" => "Datos inválidos"]));

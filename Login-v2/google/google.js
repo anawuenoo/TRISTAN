@@ -1,5 +1,5 @@
 window.handleCredentialResponse = function (response) {
-  const redireccion = "inicio.html";
+  const redireccion = "../../index.html";
   const jwt = response.credential;
 
   // Decodificar el JWT (solo el payload, no verifica firma, pero útil para frontend)
