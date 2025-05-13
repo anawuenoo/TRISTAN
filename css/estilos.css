@@ -453,6 +453,61 @@ color:#ffffff;
  
 }
 
+.texto_poesia{
+  text-align: center;
+  font-family: "BebasNeue";
+  display: block;
+  width: 40%;
+  height: 75px;
+  line-height: 75px; /* centra el texto */
+  text-align: center;
+  font-size: 40px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  background: url("../img/pxgray.png"), var(--color-button-ft);
+  box-shadow: 0px 1px 0px var(--color-box-shadow2), 1px 2px 0px var(--color-box-shadow2), 2px 3px 0px var(--color-box-shadow2), 3px 4px 0px var(--color-box-shadow2);
+  margin: 0px auto;
+  margin-top: 20px;
+  margin-bottom: 15px;
+ 
+}
+.texto_libro{
+  text-align: center;
+  font-family: "BebasNeue";
+  display: block;
+  width: 40%;
+  color: #a38852;
+  height: 75px;
+  line-height: 75px; /* centra el texto */
+  text-align: center;
+  font-size: 60px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  margin: 0px auto;
+  margin-top: 20px;
+  margin-bottom: 15px;
+ 
+}
+
+.texto_subs{
+  text-align: center;
+  font-family: "BebasNeue";
+  display: block;
+  width: 30%;
+  height: 75px;
+  line-height: 75px; /* centra el texto */
+  text-align: center;
+  font-size: 40px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  background: url("../img/pxgray.png"), var(--color-button-ft);
+  box-shadow: 0px 1px 0px var(--color-box-shadow2), 1px 2px 0px var(--color-box-shadow2), 2px 3px 0px var(--color-box-shadow2), 3px 4px 0px var(--color-box-shadow2);
+  margin: 0px auto;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+
 
 /* Contenedor principal para la barra lateral y los artículos */
 .content {
