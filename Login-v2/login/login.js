@@ -15,7 +15,7 @@ window.onload = function () {
             const params = new URLSearchParams(formObject).toString();
 
             // Añadir parámetros a la URL
-            const url = "http://localhost/Login-v2/Api/api.php?tabla=usuarios&" + params;
+            const url = "http://localhost/TRISTAN/Login-v2/Api/api.php?tabla=usuarios&" + params;
 
             fetch(url)
                 .then(function (respuesta) {

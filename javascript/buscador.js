@@ -7,7 +7,7 @@ searchButton.addEventListener('click', function () {
   const consulta = encodeURIComponent(searchInput.value);
   
   if (consulta) {
-    const url = "http://localhost/Login-v2/Api/api.php?tabla=libros&titulo=" + consulta;
+    const url = "http://localhost/TRISTAN/Login-v2/Api/api.php?tabla=libros&titulo=" + consulta;
     console.log(url);
     fetch(url)
         .then(function (respuesta) {

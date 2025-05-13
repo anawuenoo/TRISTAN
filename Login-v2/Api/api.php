@@ -40,41 +40,42 @@
     }
     
     function obtenerDatos($conexion, $tabla, $condiciones) {
-        unset($condiciones["tabla"]); // Elimina el parámetro "tabla" del filtro
+        unset($condiciones["tabla"]);
         $sql = "SELECT * FROM $tabla";
         $valores = [];
-        
+    
         if (!empty($condiciones)) {
-            // Si la tabla es "usuarios", se utiliza la comparación exacta
-            if ($tabla == "usuarios") {
+            if ($tabla == "libros") {
+                $searchTerm = $condiciones['titulo'] ?? '';
+    
+                // Asegúrate de que no esté vacío y procesar el término de búsqueda
+                if (!empty($searchTerm)) {
+                    // Opción 1: Búsqueda con LIKE para encontrar libros cuyo título contenga la palabra
+                    $sql .= " WHERE titulo LIKE ?";
+                    $valores[] = "%$searchTerm%";
+                }
+    
+                // Opción 2: Búsqueda con LEVENSHTEIN para coincidencias aproximadas (si es necesario)
+                $sql .= " OR LEVENSHTEIN(LOWER(titulo), LOWER(?)) <= 3"; // Ajusta el 3 según necesidad
+                $valores[] = $searchTerm;
+    
+                // Ordenar por relevancia usando LEVENSHTEIN
+                $sql .= " ORDER BY LEVENSHTEIN(LOWER(titulo), LOWER(?)) ASC";
+                $valores[] = $searchTerm;
+            } else {
+                // Para otras tablas
                 $sql .= " WHERE " . implode(" AND ", array_map(fn($col) => "$col = ?", array_keys($condiciones)));
                 $valores = array_values($condiciones);
-            } else {
-                // Usamos LIKE para permitir coincidencias parciales
-                $sql .= " WHERE " . implode(" AND ", array_map(fn($col) => "LOWER($col) LIKE LOWER(?)", array_keys($condiciones)));
-                $valores = array_map(fn($valor) => "%$valor%", array_values($condiciones));
-            }
-    
-            // Añadir el uso de LEVENSHTEIN para encontrar coincidencias con errores tipográficos
-            $sql .= " OR ";
-            $lvConditions = [];
-            foreach ($condiciones as $col => $valor) {
-                // Aplica LEVENSHTEIN para comprobar similitud con el término de búsqueda
-                $lvConditions[] = "LEVENSHTEIN(LOWER($col), LOWER(?)) < 20";  // Ajusta el valor '2' según el nivel de tolerancia
-                $valores[] = $valor;
-            }
-    
-            // Añade el condicional de LEVENSHTEIN a la consulta
-            if (!empty($lvConditions)) {
-                $sql .= implode(" OR ", $lvConditions);  // Si hay coincidencias aproximadas, las incluye
             }
         }
     
-        // Prepara y ejecuta la consulta
         $consulta = $conexion->prepare($sql);
         $consulta->execute($valores);
-        echo json_encode($consulta->fetchAll()); // Devuelve los resultados como JSON
+        echo json_encode($consulta->fetchAll());
     }
+    
+    
+    
     
     // Función para insertar datos en una tabla
     function insertarDatos($conexion, $tabla, $datos) {

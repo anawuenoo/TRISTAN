@@ -34,7 +34,7 @@ window.onload = function () {
             };
 
             // Construir URL con parámetros (aunque no necesitamos parámetros en la URL si estamos usando JSON)
-            const url = "http://localhost/Login-v2/Api/api.php?tabla=usuarios";
+            const url = "http://localhost/TRISTAN/Login-v2/Api/api.php?tabla=usuarios";
 
             fetch(url, options)
                 .then(function (respuesta) {
