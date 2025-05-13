@@ -22,6 +22,8 @@ searchButton.addEventListener('click', function () {
             }
         })
         .then(function (datos) {
+            console.log(datos);
+            
             sessionStorage.setItem('resultadosBusqueda', JSON.stringify(datos));  // Guarda los resultados como JSON
             console.log('Resultados guardados en sessionStorage:', datos);
         })
