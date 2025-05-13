@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function checkLoginStatus() {
-  const usuario = localStorage.getItem('usuario');
+  const usuario = JSON.parse(localStorage.getItem('usuario'));
   const authButtons = document.getElementById('auth-buttons');
   const userSection = document.getElementById('user-section');
   
@@ -14,7 +14,7 @@ function checkLoginStatus() {
     userSection.style.display = 'block';
     
     // Mostrar el nombre del usuario
-    document.getElementById('username-display').textContent = usuario;
+    document.getElementById('username-display').textContent = usuario.nombre;
   } else {
     // Mostrar botones de login/registro y ocultar sección de usuario
     authButtons.style.display = 'block';
