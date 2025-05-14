@@ -6,10 +6,21 @@ window.onload = function () {
     boton.addEventListener("click", function (e) {
         e.preventDefault(); // Evita que el formulario recargue la página
         let errores =[...document.getElementsByClassName("error")];
+        
+        // Obtener el token del reCAPTCHA v2 (checkbox)
+        const token = grecaptcha.getResponse();
+        if (!token) {
+            alert("Por favor verifica el reCAPTCHA.");
+            return;
+        }
+
         if (form.checkValidity()&&!errores.some(e => !e.hidden)) {
             // Obtener datos del formulario
             const formData = new FormData(form);
             const formObject = {}; 
+
+            // Añadir el token al objeto de datos
+            formObject.recaptchaToken = token;
 
             // Convertir los FormData a un objeto plano (para convertirlo fácilmente a JSON)
             formData.forEach((value, key) => {
@@ -19,6 +30,9 @@ window.onload = function () {
                 }
             });
             formObject.Fecha_creacion = new Date().toISOString().slice(0, 19).replace('T', ' ');
+
+            // Hashear la contraseña
+            formObject.contrasena = sha256(formObject.contrasena);
 
             // Eliminar los campos no deseados antes de enviar
             delete formObject['confirmar_correo'];
@@ -51,7 +65,7 @@ window.onload = function () {
                 })
                 .then(function (datos) {
                       if (datos.error){
-                        alert("El correo ya esta registrado");
+                        console.log(datos.error);
                       }
                       else {
                         const usuario = formObject;
@@ -68,7 +82,7 @@ window.onload = function () {
                       }
                 })
                 .catch(function (error) {
-                    alert("Error accediendo a la url: " + error);
+                    console.log("Error accediendo a la url: " + error);
                 });
         }
     });

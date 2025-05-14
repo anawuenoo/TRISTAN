@@ -15,6 +15,19 @@
     // Lee los datos JSON enviados por el cuerpo de la solicitud
     $entrada = json_decode(file_get_contents('php://input'), true);
 
+    $recaptchaToken = $entrada["recaptchaToken"] ?? $_GET["recaptchaToken"] ?? null;
+
+    // Verifica reCAPTCHA solo si se envió un token
+    if ($recaptchaToken) {
+        $verificacion = verificarRecaptcha($recaptchaToken);
+        if (!$verificacion["success"]) {
+            exit(json_encode(["error" => $verificacion["error"]]));
+        } else {
+            unset($entrada["recaptchaToken"], $entrada["recaptcha-response"], $entrada["g-recaptcha-response"]);
+            unset($_GET["recaptchaToken"], $_GET["recaptcha-response"], $_GET["g-recaptcha-response"]);
+        }
+    }
+
     // Obtiene el nombre de la tabla desde los parámetros de la URL
     $tabla = $_GET['tabla'] ?? null;
 
@@ -74,13 +87,9 @@
         echo json_encode($consulta->fetchAll());
     }
     
-    
-    
-    
     // Función para insertar datos en una tabla
     function insertarDatos($conexion, $tabla, $datos) {
         if (!$datos) exit(json_encode(["error" => "Datos inválidos"]));
-    
         try {
             $sql = "INSERT INTO $tabla (" . implode(',', array_keys($datos)) . ") VALUES (" . str_repeat('?,', count($datos) - 1) . "?)";
             $consulta = $conexion->prepare($sql);
@@ -123,5 +132,17 @@
         $consulta = $conexion->prepare($sql);
         $resultado = $consulta->execute(array_values($condiciones));
         echo json_encode(["mensaje" => $resultado ? "Registro eliminado correctamente" : "Error al eliminar"]);
+    }
+
+    function verificarRecaptcha($token) {
+        $secret = "6LeUfTMrAAAAAHWq2bNmhLt4KXfr1fafnlk0g7IJ"; // Cambia esto por tu clave secreta real
+        if (!$token) return ["success" => false, "error" => "Falta el token de reCAPTCHA"];
+
+        $respuesta = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$token");
+        $resultado = json_decode($respuesta, true);
+
+        return $resultado["success"]
+            ? ["success" => true]
+            : ["success" => false, "error" => "Verificación reCAPTCHA fallida"];
     }
 ?>

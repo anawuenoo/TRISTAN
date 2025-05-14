@@ -6,10 +6,26 @@ window.onload = function () {
     boton.addEventListener("click", function (e) {
         e.preventDefault(); // Evita que el formulario recargue la página
         let errores =[...document.getElementsByClassName("error")];
+        
+        // Obtener el token del reCAPTCHA v2 (checkbox)
+        const token = grecaptcha.getResponse();
+        if (!token) {
+            alert("Por favor verifica el reCAPTCHA.");
+            return;
+        }
+
         if (form.checkValidity()&&!errores.some(e => !e.hidden)) {
             // Obtener datos del formulario
             const formData = new FormData(form);
             const formObject = Object.fromEntries(formData);
+
+            // Añadir el token al objeto de datos
+            formObject.recaptchaToken = token;
+            
+            // Encriptar la contraseña
+            if (formObject.contrasena) {
+                formObject.contrasena = sha256(formObject.contrasena);
+            }
 
             // Convertir el objeto a una query string
             const params = new URLSearchParams(formObject).toString();
