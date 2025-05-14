@@ -60,21 +60,32 @@
         if (!empty($condiciones)) {
             if ($tabla == "libros") {
                 $searchTerm = $condiciones['titulo'] ?? '';
-    
-                // Asegúrate de que no esté vacío y procesar el término de búsqueda
+                $valores = [];
+                $filtros = [];
+
+                // Si se envía 'titulo', usar búsqueda flexible
                 if (!empty($searchTerm)) {
-                    // Opción 1: Búsqueda con LIKE para encontrar libros cuyo título contenga la palabra
-                    $sql .= " WHERE titulo LIKE ?";
+                    $filtros[] = "(titulo LIKE ? OR LEVENSHTEIN(LOWER(titulo), LOWER(?)) <= 3)";
                     $valores[] = "%$searchTerm%";
+                    $valores[] = $searchTerm;
+
+                    // Lo quitamos de condiciones para no añadirlo de nuevo abajo
+                    unset($condiciones['titulo']);
                 }
-    
-                // Opción 2: Búsqueda con LEVENSHTEIN para coincidencias aproximadas (si es necesario)
-                $sql .= " OR LEVENSHTEIN(LOWER(titulo), LOWER(?)) <= 3"; // Ajusta el 3 según necesidad
-                $valores[] = $searchTerm;
-    
-                // Ordenar por relevancia usando LEVENSHTEIN
-                $sql .= " ORDER BY LEVENSHTEIN(LOWER(titulo), LOWER(?)) ASC";
-                $valores[] = $searchTerm;
+
+                // Agrega los demás campos como condiciones exactas (=)
+                foreach ($condiciones as $columna => $valor) {
+                    $filtros[] = "$columna = ?";
+                    $valores[] = $valor;
+                }
+
+                // Construye la consulta base
+                $sql = "SELECT * FROM $tabla";
+
+                // Aplica WHERE si hay filtros
+                if (!empty($filtros)) {
+                    $sql .= " WHERE " . implode(" AND ", $filtros);
+                }
             } else {
                 // Para otras tablas
                 $sql .= " WHERE " . implode(" AND ", array_map(fn($col) => "$col = ?", array_keys($condiciones)));
