@@ -7,14 +7,22 @@ function checkLoginStatus() {
   const usuario = JSON.parse(localStorage.getItem('usuario'));
   const authButtons = document.getElementById('auth-buttons');
   const userSection = document.getElementById('user-section');
+  const userAvatar = document.getElementById('user-avatar');
   
   if (usuario) {
     // Ocultar botones de login/registro y mostrar sección de usuario
     authButtons.style.display = 'none';
-    userSection.style.display = 'block';
+    userSection.style.display = 'flex'; // Cambiado a flex para alinear bien
     
     // Mostrar el nombre del usuario
     document.getElementById('username-display').textContent = usuario.nombre;
+    
+    // Mostrar la imagen del usuario si existe, sino la default
+    if (usuario.fotoPerfil) {
+      userAvatar.src = usuario.fotoPerfil;
+    } else {
+      userAvatar.src = 'img/usuariot.web';
+    }
   } else {
     // Mostrar botones de login/registro y ocultar sección de usuario
     authButtons.style.display = 'block';
