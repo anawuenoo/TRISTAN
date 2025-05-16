@@ -48,7 +48,7 @@ function loadCurrentProfilePic() {
   if (usuario && usuario.fotoPerfil) {
       profilePic.src = usuario.fotoPerfil;
   } else {
-      profilePic.src = 'img/usuariot.webp'; // Imagen por defecto
+      profilePic.src = 'img/usuarios.webp'; // Imagen por defecto
   }
 }
 

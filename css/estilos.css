@@ -2017,7 +2017,7 @@
   }
   
   .faq-question h3 {
-      font-family: "BebasNeue";
+      font-family: Georgia, 'Times New Roman', Times, serif;
       font-size: 2.2rem;
       color: #5a3c2e;
       margin: 0;
@@ -2074,7 +2074,7 @@
   }
   
   .contact-banner h1 {
-      font-family: "BebasNeue";
+      font-family: Georgia, 'Times New Roman', Times, serif;
       font-size: 2.8rem;
       letter-spacing: 2px;
       margin: 0;
@@ -2095,7 +2095,7 @@
   }
   
   .contact-intro h2 {
-      font-family: "BebasNeue";
+      font-family: Georgia, 'Times New Roman', Times, serif;
       font-size: 2.8rem;
       color: #5a3c2e;
       margin-bottom: 1.5rem;
@@ -2124,7 +2124,7 @@
   
   .form-group label {
       display: block;
-      font-family: "BebasNeue";
+      font-family: Georgia, 'Times New Roman', Times, serif;
       font-size: 1.8rem;
       color: #5a3c2e;
       margin-bottom: 0.8rem;
@@ -2160,7 +2160,7 @@
       display: block;
       margin: 0 auto;
       padding: 1.2rem 3.5rem;
-      font-family: "BebasNeue";
+      font-family:Georgia, 'Times New Roman', Times, serif;
       font-size: 1.8rem;
       background-color: #5a3c2e;
       color: white;
@@ -2264,7 +2264,7 @@
   }
   
   .user-name {
-    font-family: "BebasNeue";
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 20px;
     color: white;
     padding: 10px 15px;
@@ -2298,7 +2298,7 @@
   .user-submenu li a {
     color: white;
     text-decoration: none;
-    font-family: "BebasNeue";
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 18px;
     display: block;
   }
@@ -2332,7 +2332,7 @@
   }
   
   .user-name {
-    font-family: "BebasNeue";
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 20px;
     color: white;
     padding: 10px 15px;
@@ -2366,7 +2366,7 @@
   .user-submenu li a {
     color: white;
     text-decoration: none;
-    font-family: "BebasNeue";
+    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 18px;
     display: block;
   }
@@ -2379,3 +2379,154 @@
     color: #000;
   }
   
+
+  /*libro autor*/
+  .book-info {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-image: linear-gradient(to bottom right, #fcfce8, #fcfcc8, #f5fc90);
+    
+}
+
+.book-info h1 {
+    color: #000000;
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.book-info div {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #313131;
+}
+
+.book-info div:before {
+    font-weight: bold;
+    color: #000;
+}
+
+.description:before {
+    content: "Descripción: ";
+}
+
+.author:before {
+    content: "Autor: ";
+}
+
+.year:before {
+    content: "Año: ";
+}
+
+.pages:before {
+    content: "Páginas: ";
+}
+
+.language:before {
+    content: "Idioma: ";
+}
+
+.isbn:before {
+    content: "ISBN: ";
+}
+
+
+
+/* Estilo base para el botón abrirModal */
+.abrirModal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  font-family: "BebasNeue", sans-serif;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: white;
+  background: linear-gradient(135deg, #A38852 0%, #8b5e3c 100%);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Efecto hover */
+.abrirModal:hover {
+  background: linear-gradient(135deg, #8b5e3c 0%, #A38852 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Efecto al hacer clic */
+.abrirModal:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Efecto de onda al hacer clic */
+.abrirModal::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+  z-index: -1;
+}
+
+.abrirModal:focus:not(:active)::after {
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+      transform: scale(0, 0);
+      opacity: 0.5;
+  }
+  100% {
+      transform: scale(20, 20);
+      opacity: 0;
+  }
+}
+
+/* Icono opcional (si quieres añadir uno) */
+.abrirModal .modal-icon {
+  font-family: "WebSymbolsRegular";
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.abrirModal:hover .modal-icon {
+  transform: scale(1.1);
+}
+
+/* Variantes de color (opcional) */
+.abrirModal.secundario {
+  background: linear-gradient(135deg, #5a3c2e 0%, #3e2b1f 100%);
+}
+
+.abrirModal.secundario:hover {
+  background: linear-gradient(135deg, #3e2b1f 0%, #5a3c2e 100%);
+}
+
+.abrirModal.acento {
+  background: linear-gradient(135deg, #d2a679 0%, #d1ba8b 100%);
+  color: #3e3b3a;
+}
+
+.abrirModal.acento:hover {
+  background: linear-gradient(135deg, #d1ba8b 0%, #d2a679 100%);
+}
