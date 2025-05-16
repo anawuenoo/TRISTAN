@@ -31,6 +31,7 @@ window.onload=function(){
                 const imagen = document.getElementById("imagen");
                 imagen.src = datos.imagen;
                 imagen.alt = datos.titulo;
+                window.ruta = datos.ruta_libro; 
                 const autor = document.getElementById("autor");
                 if (datos.id_autor==1) {
                     autor.innerHTML+="Anonimo";

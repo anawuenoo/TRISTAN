@@ -71,10 +71,10 @@
 </head>
 <body>
   <div id="modal" class="modal">
-    <div class="modal-overlay" onclick="cerrarModal()"></div>
+    <div class="modal-overlay cerrando"></div>
     <div class="modal-box">
       <div class="modal-header">
-        <span class="cerrar" onclick="cerrarModal()">✕</span>
+        <span class="cerrar cerrando">✕</span>
       </div>
       <iframe id="visorPDF" frameborder="0"></iframe>
     </div>
@@ -167,7 +167,7 @@
         <p id="paginas"><strong>Páginas: </strong></p>
         <p id="categoria"><strong>Categorias: </strong></p>
         <!-- Botón para abrir la modal -->
-        <button onclick="abrirModal('libros/Asterix-el-Galo.pdf')">Leer libro</button>
+        <button id="abrirModal">Leer libro</button>
 
       </div>
       <div class="libro-portada">
@@ -229,7 +229,7 @@
         </div>
     </div>
 </footer>
-<script src="./javascript/ajustesusu.js"></script>
+<script type="module" src="./javascript/ajustesusu.js"></script>
 <script src="./javascript/libro.js"></script>
 <script src="./javascript/leer_libro.js"></script>
 </body>
