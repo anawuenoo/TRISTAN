@@ -18,10 +18,10 @@ function checkLoginStatus() {
     userSection.style.display = 'flex'; // Cambiado a flex para alinear bien
     
     // Mostrar la imagen del usuario si existe, sino la default
-    if (usuario.fotoPerfil) {
-      userAvatar.src = usuario.fotoPerfil;
+    if (usuario.foto_perfil) {
+      userAvatar.src = usuario.foto_perfil;
     } else {
-      userAvatar.src = 'img/usuarios.webp'; // Corregí la extensión (.webp)
+      userAvatar.src = 'img/usuarios/usuarios.webp'; // Corregí la extensión (.webp)
     }
   } else {
     // Mostrar botones de login/registro y ocultar sección de usuario
@@ -45,48 +45,70 @@ function loadCurrentProfilePic() {
   const usuario = JSON.parse(localStorage.getItem('usuario'));
   const profilePic = document.getElementById('current-profile-pic');
   
-  if (usuario && usuario.fotoPerfil) {
-      profilePic.src = usuario.fotoPerfil;
+  if (usuario && usuario.foto_perfil) {
+      profilePic.src = usuario.foto_perfil;
   } else {
-      profilePic.src = 'img/usuariot.webp'; // Imagen por defecto
+      profilePic.src = 'img/usuarios/usuarios.webp'; // Imagen por defecto
   }
 }
 
-// Manejar la carga de nueva foto de perfil
 document.getElementById('profile-pic-upload')?.addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    if (!file) return;
-    
-    // Validar tamaño (max 2MB)
-    if (file.size > 2 * 1024 * 1024) {
-        alert('El archivo es demasiado grande. Máximo 2MB permitidos.');
-        return;
-    }
-    
-    // Validar tipo de archivo
-    const validTypes = ['image/jpeg', 'image/png', 'image/webp'];
-    if (!validTypes.includes(file.type)) {
-        alert('Formato no soportado. Solo JPG, PNG y WEBP.');
-        return;
-    }
-    
-    // Crear vista previa
-    const reader = new FileReader();
-    reader.onload = function(event) {
-        const imgElement = document.getElementById('current-profile-pic');
-        imgElement.src = event.target.result;
-        
-        // Actualizar en localStorage
-        const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
-        usuario.fotoPerfil = event.target.result;
-        localStorage.setItem('usuario', JSON.stringify(usuario));
-        
-        // Actualizar foto en el navbar
-        const navAvatar = document.getElementById('user-avatar');
-        if (navAvatar) navAvatar.src = event.target.result;
-        
-        // Mostrar mensaje de éxito
-        alert('Foto de perfil actualizada correctamente');
-    };
-    reader.readAsDataURL(file);
+  const file = e.target.files[0];
+  if (!file) return;
+  
+  if (file.size > 2 * 1024 * 1024) {
+      alert('El archivo es demasiado grande. Máximo 2MB permitidos.');
+      return;
+  }
+  
+  const validTypes = ['image/jpeg', 'image/png', 'image/webp'];
+  if (!validTypes.includes(file.type)) {
+      alert('Formato no soportado. Solo JPG, PNG y WEBP.');
+      return;
+  }
+  
+  const usuario = JSON.parse(localStorage.getItem('usuario')) || {};
+  
+  
+  // Crear nombre archivo: id_nombre.ext
+  const extension = file.name.split('.').pop();
+  let nombreArchivo;
+  if(usuario.id){
+    nombreArchivo = `${usuario.id}_${usuario.nombre.replace(/\s+/g, '_')}.${extension}`;
+  }
+  else {
+    nombreArchivo = `${usuario.google_sub}_${usuario.nombre.replace(/\s+/g, '_')}.${extension}`;
+  }
+  
+  const formData = new FormData();
+  formData.append('foto_perfil', file);
+  formData.append('nombre_archivo', nombreArchivo);
+  formData.append('archivo_antiguo', usuario.foto_perfil || 'usuarios.webp'); // para borrar
+  
+  fetch('http://localhost/TRISTAN/Login-v2/Api/upload.php?correo='+usuario.correo, {
+      method: 'POST',
+      body: formData
+  })
+  .then(res => {
+      if (!res.ok) throw new Error('Error subiendo imagen');
+      return res.json();
+  })
+  .then(data => {
+      if (data.url) {
+          const imgElement = document.getElementById('current-profile-pic');
+          imgElement.src = data.url;
+          
+          usuario.foto_perfil = data.url;
+          localStorage.setItem('usuario', JSON.stringify(usuario));
+          
+          const navAvatar = document.getElementById('user-avatar');
+          if (navAvatar) navAvatar.src = data.url;
+          alert('Foto de perfil actualizada correctamente');
+      } else {
+          throw new Error(data.error || 'Error desconocido');
+      }
+  })
+  .catch(error => {
+      alert('Error al subir la imagen: ' + error.message);
+  });
 });

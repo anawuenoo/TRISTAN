@@ -28,6 +28,7 @@ window.handleCredentialResponse = function (response) {
         console.log("Usuario ya registrado");
         const usuario = datos[0];  // Suponemos que la respuesta es un array con el usuario
         localStorage.setItem('usuario', JSON.stringify({
+          id: usuario.id,
           nombre: usuario.nombre,
           correo: usuario.correo,
           idioma: usuario.idioma,
@@ -78,6 +79,7 @@ window.handleCredentialResponse = function (response) {
                 })
                 .then(function (respuesta) {
                   localStorage.setItem('usuario', JSON.stringify({
+                    id: usuarioExistente.id,
                     nombre: usuarioExistente.nombre,
                     correo: usuarioExistente.correo,
                     idioma: usuarioExistente.idioma,
@@ -98,10 +100,11 @@ window.handleCredentialResponse = function (response) {
               const nombre = payload.name;
               const fecha_creacion = new Date().toISOString().split('T')[0]; // Solo YYYY-MM-DD
               const idioma = payload.locale;
-
+              const contrasena = sha256("");
               const nuevoUsuario = {
                 google_sub: google_sub,
                 nombre: nombre,
+                contrasena: contrasena,
                 correo: correo,
                 fecha_creacion: fecha_creacion,
                 idioma: idioma,
@@ -125,6 +128,7 @@ window.handleCredentialResponse = function (response) {
                 .then(function (respuesta) {
                   console.log("Usuario creado:", respuesta);
                   localStorage.setItem('usuario', JSON.stringify({
+                    google_sub: google_sub,
                     nombre: nombre,
                     correo: correo,
                     idioma: idioma,
