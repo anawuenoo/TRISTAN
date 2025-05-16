@@ -336,7 +336,6 @@
   
   .texto__desplegable{
       font-size: 15px;
-      margin-top: 5px;
       margin-left: 5px;
   }
   
@@ -1621,6 +1620,99 @@
       color: #5a3c2e;
       margin-bottom: 1.5rem;
   }
+
+  /* Estilos mejorados para la sección de foto de perfil */
+.foto-perfil-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5rem;
+}
+
+.foto-actual-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.foto-actual {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-banner);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.foto-actual:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.foto-texto {
+    margin-top: 0.8rem;
+    font-family: "TrebuchetMS";
+    color: #5a3c2e;
+    font-size: 0.9rem;
+}
+
+.cambiar-foto-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.btn-cambiar-foto {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(to bottom, #8b5e3c 0%, #5a3c2e 100%);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-family: "BebasNeue";
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.btn-cambiar-foto:hover {
+    background: linear-gradient(to bottom, #a38852 0%, #8b5e3c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn-cambiar-foto i {
+    font-size: 1.2rem;
+}
+
+.formatos-soportados {
+    font-family: "TrebuchetMS";
+    font-size: 0.8rem;
+    color: #666;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .foto-perfil-container {
+        flex-direction: column;
+    }
+    
+    .btn-cambiar-foto {
+        padding: 0.7rem 1.2rem;
+        font-size: 1rem;
+    }
+}
   
   .form-group {
       margin-bottom: 1.5rem;
@@ -1717,45 +1809,121 @@
       padding-right: 2.5rem;
   }
   
-  /* Botones y sección de eliminación */
-  .btn--danger {
-      background-color: #e74c3c !important;
-      border-color: #c0392b !important;
-  }
-  
-  .btn--danger:hover {
-      background-color: #c0392b !important;
-  }
-  
-  .botones-finales {
-      display: flex;
-      gap: 1rem;
-      justify-content: flex-end;
-      margin-top: 2rem;
-  }
-  
-  .seccion-eliminar {
-      background: #ffffff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      margin-top: 2rem;
-      text-align: center;
-      border: 2px solid #ffe3e3;
-  }
-  
-  .seccion-eliminar h2 {
-      font-family: "BebasNeue";
-      font-size: 1.8rem;
-      color: #e74c3c;
-      margin-bottom: 1rem;
-  }
-  
-  .seccion-eliminar .advertencia {
-      font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-      font-family: "TrebuchetMS";
-  }
+  .btn {
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 30px;
+    font-family: "BebasNeue";
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn {
+    background: linear-gradient(to bottom, #8b5e3c 0%, #5a3c2e 100%);
+    color: white;
+}
+
+.btn:hover {
+    background: linear-gradient(to bottom, #a38852 0%, #8b5e3c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.btn--secondary {
+    background: linear-gradient(to bottom, #f5f5f5 0%, #e0e0e0 100%);
+    color: #5a3c2e;
+    border: 1px solid #d0d0d0;
+}
+
+.btn--secondary:hover {
+    background: linear-gradient(to bottom, #ffffff 0%, #f0f0f0 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn--danger {
+    background: linear-gradient(to bottom, #e74c3c 0%, #c0392b 100%) !important;
+    color: white !important;
+    padding: 0.8rem 1.8rem !important;
+    border: none !important;
+    border-radius: 30px !important;
+    font-family: "BebasNeue" !important;
+    font-size: 1.2rem !important;
+    letter-spacing: 1px !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+    transition: all 0.3s ease !important;
+}
+
+.btn--danger:hover {
+    background: linear-gradient(to bottom, #ff5c4d 0%, #e74c3c 100%) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+.botones-finales {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.seccion-eliminar {
+    background: #fff9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+    text-align: center;
+    border: 2px solid #ffe3e3;
+}
+
+.seccion-eliminar h2 {
+    font-family: "BebasNeue";
+    font-size: 1.8rem;
+    color: #e74c3c;
+    margin-bottom: 1rem;
+}
+
+.seccion-eliminar .advertencia {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    font-family: "TrebuchetMS";
+    color: #5a3c2e;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .foto-perfil-container {
+        flex-direction: column;
+    }
+    
+    .btn-cambiar-foto {
+        padding: 0.7rem 1.2rem;
+        font-size: 1rem;
+    }
+
+    .botones-finales {
+        justify-content: center;
+    }
+    
+    .btn, .btn--secondary, .btn--danger {
+        padding: 0.7rem 1.5rem;
+        font-size: 1.1rem;
+        width: 100%;
+    }
+}
   
   /* Footer simulado */
   .footer {
@@ -2147,8 +2315,8 @@
   /*nuevo*/
   /* Añade estos estilos al CSS */
   .user-avatar {
-    width: 10px;
-    height: 10px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     object-fit: cover;
     margin-right: 10px;

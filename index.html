@@ -20,39 +20,41 @@
     <header class="header">
       <div class="header__wrap">
         <div class="header__logo">
-          <img src="./img/logo.png" alt="Logo Librería" class="logo__img" />
-          <!-- Agregamos el nombre aquí -->
-          
-        </div>
+          <a href="index.html">
+            <img src="./img/logo.png" alt="Logo Librería" class="logo__img" />
+          </a>
+        </div>        
         <nav class="header__menu">
           <ul class="menu__list">
             <li class="list__item"><a href="index.html">INICIO</a></li>
             <li class="list__item">
-              <a class="item__texto" href="categorias.html">CATEGORIAS</a>
+              <a class="itemtexto" href="categorias.html">
+                CATEGORIAS <span class="textodesplegable">&#9662;</span>
+              </a>              
               <ul class="list__submenu">
                   <li class="submenu__item">
-                      <a href="#" class="submenu__title">Ficción</a>
+                      <a href="subcategorias.html?id=1&nombre=Ficción" class="submenu__title">Ficción</a>
                   </li>
                   <li class="submenu__item">
-                      <a href="#" class="submenu__title">Ciencia</a>
+                      <a href="subcategorias.html?id=2&nombre=Ciencia" class="submenu__title">Ciencia</a>
                   </li>
                   <li class="submenu__item">
-                      <a href="#" class="submenu__title">Cómic/Manga</a>
+                      <a href="subcategorias.html?id=3&nombre=Comic/Manga" class="submenu__title">Cómic/Manga</a>
                   </li>
                   <li class="submenu__item">
-                      <a href="#" class="submenu__title">Infantil</a>
+                      <a href="subcategorias.html?id=4&nombre=Infantil" class="submenu__title">Infantil</a>
                   </li>
                   <li class="submenu__item">
-                      <a href="#" class="submenu__title">Fantasía</a>
+                      <a href="subcategorias.html?id=5&nombre=Fantasía" class="submenu__title">Fantasía</a>
                   </li>
                   <li class="submenu__item">
-                      <a href="#" class="submenu__title">Historia</a>
+                      <a href="subcategorias.html?id=6&nombre=Historia" class="submenu__title">Historia</a>
                   </li>
                   <li class="submenu__item">
-                      <a href="#" class="submenu__title">Literatura</a>
+                      <a href="subcategorias.html?id=7&nombre=Literatura" class="submenu__title">Literatura</a>
                   </li>
                   <li class="submenu__item">
-                      <a href="#" class="submenu__title">Poesía</a>
+                      <a href="subcategorias.html?id=8&nombre=Poesía" class="submenu__title">Poesía</a>
                   </li>
               </ul>
             </li>
@@ -70,7 +72,7 @@
           </div>
           <div id="user-section" style="display: none;">
             <div class="user-menu">
-              <img id="user-avatar" src="img/usuariot.webp" alt="Foto de perfil" class="user-avatar">
+              <img id="user-avatar" src="img/usuarios.webp" alt="Foto de perfil" class="user-avatar">
               <span id="username-display" class="user-name"></span>
               <ul class="user-submenu">
                 <li><a href="ajustes.html">Ajustes</a></li>

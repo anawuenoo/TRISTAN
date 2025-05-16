@@ -14,14 +14,11 @@ function checkLoginStatus() {
     authButtons.style.display = 'none';
     userSection.style.display = 'flex'; // Cambiado a flex para alinear bien
     
-    // Mostrar el nombre del usuario
-    document.getElementById('username-display').textContent = usuario.nombre;
-    
     // Mostrar la imagen del usuario si existe, sino la default
-    if (usuario.fotoPerfil) {
-      userAvatar.src = usuario.fotoPerfil;
+    if (usuario.foto_perfil) {
+      userAvatar.src = usuario.foto_perfil;
     } else {
-      userAvatar.src = 'img/usuariot.web';
+      userAvatar.src = 'img/usuarios.webp';
     }
   } else {
     // Mostrar botones de login/registro y ocultar sección de usuario

@@ -50,8 +50,7 @@ window.onload = function () {
             // Añadir comportamiento al hacer clic en la carta
             carta.addEventListener("click", function () {
                 // Redirigir a otra página con el ID como parámetro en la URL
-                const categoriaData = encodeURIComponent(JSON.stringify(categoria));
-                window.location.href = "subcategorias.html?categoria="+categoriaData;
+                window.location.href = "subcategorias.html?id="+categoria.id+"&nombre="+categoria.nombre;
             });
 
             // Agregar la imagen y el título dentro de la tarjeta
