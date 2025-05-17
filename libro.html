@@ -170,9 +170,24 @@
         <button class="abrirModal" id="abrir_modal">Leer libro</button>
 
       </div>
-      <div class="libro-portada">
-        <img src="" alt="" id="imagen"/>
+      <div class="libro-detalle">
+        <div class="libro-info">
+          <!-- Contenido de información del libro -->
+        </div>
+        
+        <div class="libro-portada-container">
+          <div class="libro-portada">
+            <img src="" alt="" id="imagen"/>
+          </div>
+          <div class="favorito-container">
+            <button id="favorito-btn" class="favorito-btn">
+              <span class="favorito-texto">Favorito</span>
+              <span class="corazon">♡</span>
+            </button>
+          </div>
+        </div>
       </div>
+      
     </div>
   </main>
 
@@ -185,8 +200,8 @@
                 <button class="footer__button">REDES SOCIALES</button>
                 <div class="footer__icons">
                     <a href="#"><img src="img/facebook.png" alt="Facebook"></a>
-                    <a href="#"><img src="img/instagram.png" alt="Instagram"></a>
-                    <a href="#"><img src="img/twitter.png" alt="X/Twitter"></a>
+                    <a href="https://www.instagram.com/iii_tristan_iii?igsh=N3JmdWVpNnVodzMx"><img src="img/instagram.png" alt="Instagram"></a>
+                    <a href="https://x.com/TristanBTBooks"><img src="img/twitter.png" alt="X/Twitter"></a>
                 </div>
             </div>
         </div>
@@ -232,5 +247,6 @@
 <script type="module" src="./javascript/ajustesusu.js"></script>
 <script src="./javascript/libro.js"></script>
 <script src="./javascript/leer_libro.js"></script>
+<script src="./javascript/favoritos.js"></script>
 </body>
 </html>
