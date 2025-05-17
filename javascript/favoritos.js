@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const corazon = favoritoBtn.querySelector('.corazon');
     
     // Verificar si el usuario está logueado
-    const usuarioLogueado = localStorage.getItem('usuarioLogueado') === 'true';
-    const userId = localStorage.getItem('userId');
+    const usuario = localStorage.getItem('usuario') === 'true';
+    const id = usuario.id;
     
     // Obtener ID del libro de la URL
     const urlParams = new URLSearchParams(window.location.search);
@@ -16,19 +16,16 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
   
-    if (!usuarioLogueado || !userId) {
+    if (!usuario || !id) {
       // Mostrar botón pero con funcionalidad limitada
       favoritoBtn.onclick = function() {
         mostrarNotificacion('Debes iniciar sesión para usar favoritos');
-        setTimeout(() => {
-          window.location.href = 'Login-v2/login/login.html?redirect=' + encodeURIComponent(window.location.href);
-        }, 1500);
       };
       return;
     }
     
     // Cargar favoritos del usuario
-    let favoritos = JSON.parse(localStorage.getItem(`favoritos_${userId}`)) || [];
+    let favoritos = JSON.parse(localStorage.getItem(`favoritos_${id}`)) || [];
     
     // Verificar si el libro actual está en favoritos
     const esFavorito = favoritos.includes(libroId);
@@ -58,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       
       // Guardar en localStorage
-      localStorage.setItem(`favoritos_${userId}`, JSON.stringify(favoritos));
+      localStorage.setItem(`favoritos_${id}`, JSON.stringify(favoritos));
     });
     
     function mostrarNotificacion(mensaje) {

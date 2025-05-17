@@ -51,8 +51,7 @@ window.onload=function(){
                             }
                         })
                         .then(function (datos) {
-                            autor.href="autor.html?id="+datos.id;
-                            const url = "http://localhost/TRISTAN/Login-v2/Api/api.php?tabla=usuarios&id="+datos.id_usuario;
+                            const url = "http://localhost/TRISTAN/Login-v2/Api/api.php?tabla=usuarios&id="+datos[0].id_usuario;
                             fetch(url)
                                 .then(function (respuesta) {
                                     if (!respuesta.ok) {
@@ -66,7 +65,9 @@ window.onload=function(){
                                     }
                                 })
                                 .then(function (datos) {
-                                    autor.textContent = datos.nombre;
+                                    autor.href="autor.html?id="+datos[0].id;
+                                    autor.textContent = datos[0].nombre;
+                                    
                                 })
                                 .catch(function (error) {
                                     alert("Error accediendo a la url: " + error);

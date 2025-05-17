@@ -86,6 +86,21 @@
                 if (!empty($filtros)) {
                     $sql .= " WHERE " . implode(" AND ", $filtros);
                 }
+
+            } else if ($tabla == "usuarios" && count($condiciones) == 1 && isset($condiciones['id'])) {
+                // Solo si la tabla es usuario y la única condición es id
+                $idValor = $condiciones['id'];
+    
+                if (is_array($idValor) || (is_string($idValor) && str_contains($idValor, ','))) {
+                    $ids = is_array($idValor) ? $idValor : array_map('trim', explode(',', $idValor));
+                    $placeholders = implode(',', array_fill(0, count($ids), '?'));
+                    $sql .= " WHERE id IN ($placeholders)";
+                    $valores = array_merge($valores, $ids);
+                } else {
+                    $sql .= " WHERE id = ?";
+                    $valores[] = $idValor;
+                }
+    
             } else {
                 // Para otras tablas
                 $sql .= " WHERE " . implode(" AND ", array_map(fn($col) => "$col = ?", array_keys($condiciones)));
